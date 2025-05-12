@@ -25,35 +25,79 @@ namespace FMS.Model___Controller
             connection = new DBConnection();
         }
 
-        // Create a new restaurant
-        public void CreateRestaurant(string username, string password, string name, string description, string address, DateTime openingTime, DateTime closingTime)
+        //Create Restaurant
+        public bool CreateRestaurant(string username, string password, string name, string description, string address, DateTime openingTime, DateTime closingTime)
         {
+            // Check if username already exists
+            string checkQuery = $"SELECT COUNT(*) FROM users WHERE Username = '{username}'";
+            int count = 0;
+
+            try
+            {
+                if (dbConnection.OpenConnection())
+                {
+                    using (var command = new MySqlCommand(checkQuery, dbConnection.GetConnection()))
+                    {
+                        count = Convert.ToInt32(command.ExecuteScalar());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error checking username: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dbConnection.CloseConnection();
+                return false;
+            }
+            finally
+            {
+                dbConnection.CloseConnection();
+            }
+
+            if (count > 0)
+            {
+                MessageBox.Show("Username already exists. Please choose a different one.", "Duplicate Username", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if ((closingTime - openingTime).TotalHours < 6)
+            {
+                MessageBox.Show("The restaurant's closing time must be at least 6 hours after the opening time.", "Invalid Time Range", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
 
             this.userName = username;
             this.password = password;
             this.userType = 1; // 1 for Customer
 
             AddUser(userName, password, this.userType);
-
             int lastUserId = dbConnection.GetLastInsertId();
 
             string query = $"INSERT INTO restaurants (ID, Name, Description, Address, OpenTime, CloseTime) " +
-                           $"VALUES ('{lastUserId}', '{name}', '{description}', '{address}', '{openingTime}', '{closingTime}');";
+                           $"VALUES ('{lastUserId}', '{name}', '{description}', '{address}', '{openingTime:HH:mm}', '{closingTime:HH:mm}')";
 
             try
             {
                 connection.ExecuteQuery(query);
                 MessageBox.Show("Restaurant created successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
         }
 
         // Edit an existing restaurant
         public void EditRestaurant(int id, string name, string description, string address, DateTime openingTime, DateTime closingTime)
         {
+            // Ensure there is a 6-hour gap between OpenTime and CloseTime
+            if ((closingTime - openingTime).TotalHours < 6)
+            {
+                MessageBox.Show("The restaurant's closing time must be at least 6 hours after the opening time.", "Invalid Time Range", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             string query = $"UPDATE restaurants SET ";
             List<string> updateFields = new List<string>();
 
@@ -63,8 +107,8 @@ namespace FMS.Model___Controller
                 updateFields.Add($"description = '{description}'");
             if (!string.IsNullOrEmpty(address))
                 updateFields.Add($"address = '{address}'");
-            updateFields.Add($"OpenTime = '{openingTime}'");
-            updateFields.Add($"CloseTime = '{closingTime}'");
+            updateFields.Add($"OpenTime = '{openingTime:HH:mm}'");
+            updateFields.Add($"CloseTime = '{closingTime:HH:mm}'");
 
             if (updateFields.Count > 0)
             {
@@ -86,20 +130,18 @@ namespace FMS.Model___Controller
             }
         }
 
+
         // Delete a restaurant
         public void DeleteRestaurant(int id)
         {
-            string query = $"DELETE FROM restaurants WHERE ID = {id};";
+            string deleteMenuItems = $"DELETE FROM menuitems WHERE RestaurantID = {id};";
+            connection.ExecuteQuery(deleteMenuItems);
 
-            try
-            {
-                connection.ExecuteQuery(query);
-                MessageBox.Show("Restaurant deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            string deleteRestaurant = $"DELETE FROM restaurants WHERE ID = {id};";
+            connection.ExecuteQuery(deleteRestaurant);
+
+            string deleteUser = $"DELETE FROM users WHERE ID = {id};";
+            connection.ExecuteQuery(deleteUser);
         }
 
         // Get all restaurants
