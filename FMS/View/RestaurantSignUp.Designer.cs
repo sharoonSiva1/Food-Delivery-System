@@ -37,14 +37,14 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.NameTextBox = new System.Windows.Forms.TextBox();
+            this.DescTextBox = new System.Windows.Forms.TextBox();
+            this.AddTextBox = new System.Windows.Forms.TextBox();
+            this.UsernameTextBox = new System.Windows.Forms.TextBox();
+            this.PasswordTextBox = new System.Windows.Forms.TextBox();
+            this.ConfirmPasswordTextBox = new System.Windows.Forms.TextBox();
+            this.OpenTimeBox = new System.Windows.Forms.DateTimePicker();
+            this.CloseTimeBox = new System.Windows.Forms.DateTimePicker();
             this.RegisterButton = new System.Windows.Forms.Button();
             this.GoBackButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -131,61 +131,61 @@
             this.label9.TabIndex = 8;
             this.label9.Text = "Confrim Password : ";
             // 
-            // textBox1
+            // NameTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(372, 72);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(174, 22);
-            this.textBox1.TabIndex = 9;
+            this.NameTextBox.Location = new System.Drawing.Point(372, 72);
+            this.NameTextBox.Name = "NameTextBox";
+            this.NameTextBox.Size = new System.Drawing.Size(174, 22);
+            this.NameTextBox.TabIndex = 9;
             // 
-            // textBox2
+            // DescTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(372, 107);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(174, 22);
-            this.textBox2.TabIndex = 10;
+            this.DescTextBox.Location = new System.Drawing.Point(372, 107);
+            this.DescTextBox.Name = "DescTextBox";
+            this.DescTextBox.Size = new System.Drawing.Size(174, 22);
+            this.DescTextBox.TabIndex = 10;
             // 
-            // textBox3
+            // AddTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(372, 150);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(174, 22);
-            this.textBox3.TabIndex = 11;
+            this.AddTextBox.Location = new System.Drawing.Point(372, 150);
+            this.AddTextBox.Name = "AddTextBox";
+            this.AddTextBox.Size = new System.Drawing.Size(174, 22);
+            this.AddTextBox.TabIndex = 11;
             // 
-            // textBox4
+            // UsernameTextBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(372, 272);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(174, 22);
-            this.textBox4.TabIndex = 12;
+            this.UsernameTextBox.Location = new System.Drawing.Point(372, 272);
+            this.UsernameTextBox.Name = "UsernameTextBox";
+            this.UsernameTextBox.Size = new System.Drawing.Size(174, 22);
+            this.UsernameTextBox.TabIndex = 12;
             // 
-            // textBox5
+            // PasswordTextBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(372, 314);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(174, 22);
-            this.textBox5.TabIndex = 13;
+            this.PasswordTextBox.Location = new System.Drawing.Point(372, 314);
+            this.PasswordTextBox.Name = "PasswordTextBox";
+            this.PasswordTextBox.Size = new System.Drawing.Size(174, 22);
+            this.PasswordTextBox.TabIndex = 13;
             // 
-            // textBox6
+            // ConfirmPasswordTextBox
             // 
-            this.textBox6.Location = new System.Drawing.Point(372, 352);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(174, 22);
-            this.textBox6.TabIndex = 14;
+            this.ConfirmPasswordTextBox.Location = new System.Drawing.Point(372, 352);
+            this.ConfirmPasswordTextBox.Name = "ConfirmPasswordTextBox";
+            this.ConfirmPasswordTextBox.Size = new System.Drawing.Size(174, 22);
+            this.ConfirmPasswordTextBox.TabIndex = 14;
             // 
-            // dateTimePicker1
+            // OpenTimeBox
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(372, 194);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(174, 22);
-            this.dateTimePicker1.TabIndex = 15;
+            this.OpenTimeBox.Location = new System.Drawing.Point(372, 194);
+            this.OpenTimeBox.Name = "OpenTimeBox";
+            this.OpenTimeBox.Size = new System.Drawing.Size(174, 22);
+            this.OpenTimeBox.TabIndex = 15;
             // 
-            // dateTimePicker2
+            // CloseTimeBox
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(372, 233);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(174, 22);
-            this.dateTimePicker2.TabIndex = 16;
+            this.CloseTimeBox.Location = new System.Drawing.Point(372, 233);
+            this.CloseTimeBox.Name = "CloseTimeBox";
+            this.CloseTimeBox.Size = new System.Drawing.Size(174, 22);
+            this.CloseTimeBox.TabIndex = 16;
             // 
             // RegisterButton
             // 
@@ -212,14 +212,14 @@
             this.ClientSize = new System.Drawing.Size(800, 507);
             this.Controls.Add(this.GoBackButton);
             this.Controls.Add(this.RegisterButton);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.CloseTimeBox);
+            this.Controls.Add(this.OpenTimeBox);
+            this.Controls.Add(this.ConfirmPasswordTextBox);
+            this.Controls.Add(this.PasswordTextBox);
+            this.Controls.Add(this.UsernameTextBox);
+            this.Controls.Add(this.AddTextBox);
+            this.Controls.Add(this.DescTextBox);
+            this.Controls.Add(this.NameTextBox);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -247,14 +247,14 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.TextBox NameTextBox;
+        private System.Windows.Forms.TextBox DescTextBox;
+        private System.Windows.Forms.TextBox AddTextBox;
+        private System.Windows.Forms.TextBox UsernameTextBox;
+        private System.Windows.Forms.TextBox PasswordTextBox;
+        private System.Windows.Forms.TextBox ConfirmPasswordTextBox;
+        private System.Windows.Forms.DateTimePicker OpenTimeBox;
+        private System.Windows.Forms.DateTimePicker CloseTimeBox;
         private System.Windows.Forms.Button RegisterButton;
         private System.Windows.Forms.Button GoBackButton;
     }
