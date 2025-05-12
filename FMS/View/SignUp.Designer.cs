@@ -33,6 +33,7 @@
             this.RestaurantButton = new System.Windows.Forms.Button();
             this.CustomerButton = new System.Windows.Forms.Button();
             this.DeliveryDriverButton = new System.Windows.Forms.Button();
+            this.GoBackButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SignUpLabel
@@ -82,11 +83,21 @@
             this.DeliveryDriverButton.Text = "Delivery Driver";
             this.DeliveryDriverButton.UseVisualStyleBackColor = true;
             // 
+            // GoBackButton
+            // 
+            this.GoBackButton.Location = new System.Drawing.Point(362, 357);
+            this.GoBackButton.Name = "GoBackButton";
+            this.GoBackButton.Size = new System.Drawing.Size(75, 27);
+            this.GoBackButton.TabIndex = 5;
+            this.GoBackButton.Text = "Go Back";
+            this.GoBackButton.UseVisualStyleBackColor = true;
+            // 
             // SignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.GoBackButton);
             this.Controls.Add(this.DeliveryDriverButton);
             this.Controls.Add(this.CustomerButton);
             this.Controls.Add(this.RestaurantButton);
@@ -106,5 +117,6 @@
         private System.Windows.Forms.Button RestaurantButton;
         private System.Windows.Forms.Button CustomerButton;
         private System.Windows.Forms.Button DeliveryDriverButton;
+        private System.Windows.Forms.Button GoBackButton;
     }
 }
