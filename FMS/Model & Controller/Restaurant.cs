@@ -44,7 +44,7 @@ namespace FMS.Model___Controller
         }
 
         // Edit an existing restaurant
-        public void EditRestaurant(int id, string name, string description, string address, TimeSpan openingTime, TimeSpan closingTime, string review)
+        public void EditRestaurant(int id, string name, string description, string address, TimeSpan openingTime, TimeSpan closingTime)
         {
             string query = $"UPDATE restaurants SET ";
             List<string> updateFields = new List<string>();
@@ -59,8 +59,6 @@ namespace FMS.Model___Controller
                 updateFields.Add($"OpenTime = '{openingTime}'");
             if (closingTime != TimeSpan.Zero)
                 updateFields.Add($"CloseTime = '{closingTime}'");
-            if (!string.IsNullOrEmpty(review))
-                updateFields.Add($"Review = '{review}'");
 
             if (updateFields.Count > 0)
             {

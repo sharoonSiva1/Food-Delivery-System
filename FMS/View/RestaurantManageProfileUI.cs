@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FMS.Model___Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,60 @@ namespace FMS.View
 {
     public partial class RestaurantManageProfileUI : Form
     {
-        public RestaurantManageProfileUI()
+        private Restaurant restaurant;
+        private int RestaurantId = 1; //MAKE SURE TO REMOVE 1 WHEN CHECKING CODE
+        public RestaurantManageProfileUI(int restaurantId)
         {
             InitializeComponent();
+            restaurant = new Restaurant();
+
+            // Set format for time pickers
+            OpeningTimeBox.Format = DateTimePickerFormat.Custom;
+            OpeningTimeBox.CustomFormat = "HH:mm";
+            ClosingTimeBox.Format = DateTimePickerFormat.Custom;
+            ClosingTimeBox.CustomFormat = "HH:mm";
+            RestaurantId = restaurantId;
+        }  
+
+        private void LoadRestaurantDetails()
+        {
+            var details = restaurant.GetRestaurantById(RestaurantId);
+
+            if (details != null)
+            {
+                NameTextBox.Text = details.RestaurantName;
+                DescTextBox.Text = details.Description;
+                AddressTextBox.Text = details.Address;
+                OpeningTimeBox.Value = DateTime.Today.Add(details.OpeningTime);
+                ClosingTimeBox.Value = DateTime.Today.Add(details.ClosingTime);
+            }
+            else
+            {
+                MessageBox.Show("No restaurant profile found.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            string name = NameTextBox.Text.Trim();
+            string desc = DescTextBox.Text.Trim();
+            string address = AddressTextBox.Text.Trim();
+            TimeSpan opening = OpeningTimeBox.Value.TimeOfDay;
+            TimeSpan closing = ClosingTimeBox.Value.TimeOfDay;
+
+            restaurant.EditRestaurant(RestaurantId,name, desc, address, opening, closing);
+        }
+
+        private void GoBackButton_Click(object sender, EventArgs e)
+        {
+            RestaurantUI restaurantUI = new RestaurantUI(RestaurantId);
+            restaurantUI.Show();
+            this.Hide();
+        }
+
+        private void RestaurantManageProfileUI_Load(object sender, EventArgs e)
+        {
+            LoadRestaurantDetails();
         }
     }
 }
