@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.MenuDataGridView = new System.Windows.Forms.DataGridView();
+            this.menuItemsGrid = new System.Windows.Forms.DataGridView();
             this.AddItemButton = new System.Windows.Forms.Button();
             this.UpdateItemButton = new System.Windows.Forms.Button();
             this.RemoveItemButton = new System.Windows.Forms.Button();
             this.GoBackButton = new System.Windows.Forms.Button();
             this.MenuLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.MenuDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.menuItemsGrid)).BeginInit();
             this.SuspendLayout();
             // 
-            // MenuDataGridView
+            // menuItemsGrid
             // 
-            this.MenuDataGridView.AllowUserToOrderColumns = true;
-            this.MenuDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MenuDataGridView.Location = new System.Drawing.Point(64, 104);
-            this.MenuDataGridView.Name = "MenuDataGridView";
-            this.MenuDataGridView.RowHeadersWidth = 51;
-            this.MenuDataGridView.RowTemplate.Height = 24;
-            this.MenuDataGridView.Size = new System.Drawing.Size(686, 180);
-            this.MenuDataGridView.TabIndex = 0;
+            this.menuItemsGrid.AllowUserToOrderColumns = true;
+            this.menuItemsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.menuItemsGrid.Location = new System.Drawing.Point(64, 104);
+            this.menuItemsGrid.Name = "menuItemsGrid";
+            this.menuItemsGrid.RowHeadersWidth = 51;
+            this.menuItemsGrid.RowTemplate.Height = 24;
+            this.menuItemsGrid.Size = new System.Drawing.Size(686, 180);
+            this.menuItemsGrid.TabIndex = 0;
             // 
             // AddItemButton
             // 
@@ -56,6 +56,7 @@
             this.AddItemButton.TabIndex = 1;
             this.AddItemButton.Text = "Add";
             this.AddItemButton.UseVisualStyleBackColor = true;
+            this.AddItemButton.Click += new System.EventHandler(this.AddItemButton_Click);
             // 
             // UpdateItemButton
             // 
@@ -65,6 +66,7 @@
             this.UpdateItemButton.TabIndex = 2;
             this.UpdateItemButton.Text = "Update";
             this.UpdateItemButton.UseVisualStyleBackColor = true;
+            this.UpdateItemButton.Click += new System.EventHandler(this.UpdateItemButton_Click);
             // 
             // RemoveItemButton
             // 
@@ -74,6 +76,7 @@
             this.RemoveItemButton.TabIndex = 3;
             this.RemoveItemButton.Text = "Remove";
             this.RemoveItemButton.UseVisualStyleBackColor = true;
+            this.RemoveItemButton.Click += new System.EventHandler(this.RemoveItemButton_Click);
             // 
             // GoBackButton
             // 
@@ -105,10 +108,11 @@
             this.Controls.Add(this.RemoveItemButton);
             this.Controls.Add(this.UpdateItemButton);
             this.Controls.Add(this.AddItemButton);
-            this.Controls.Add(this.MenuDataGridView);
+            this.Controls.Add(this.menuItemsGrid);
             this.Name = "RestaurantManageMenuUI";
             this.Text = "RestaurantManageMenuUI";
-            ((System.ComponentModel.ISupportInitialize)(this.MenuDataGridView)).EndInit();
+            this.Load += new System.EventHandler(this.RestaurantManageMenuUI_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.menuItemsGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,7 +120,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView MenuDataGridView;
+        private System.Windows.Forms.DataGridView menuItemsGrid;
         private System.Windows.Forms.Button AddItemButton;
         private System.Windows.Forms.Button UpdateItemButton;
         private System.Windows.Forms.Button RemoveItemButton;

@@ -34,5 +34,11 @@ namespace FMS.View
             new DriverSignUp().Show();
             this.Hide();
         }
+
+        private void GoBackButton_Click(object sender, EventArgs e)
+        {
+            new Login().Show();
+            this.Hide();
+        }
     }
 }

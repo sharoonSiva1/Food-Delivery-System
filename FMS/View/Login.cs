@@ -25,7 +25,7 @@ namespace FMS.View
 
             User user = new User().GetUser(username);
 
-            if (user.password != password && user != null)
+            if (user == null || user.password != password)
             {
                 MessageBox.Show("Invalid username or password.");
                 return;
@@ -33,7 +33,7 @@ namespace FMS.View
             {
                 if (user.userType == 1)
                 {
-                    new RestaurantUI().Show();
+                    new RestaurantUI(user.userID).Show();
                     this.Hide();
                 }
                 else if (user.userType == 2)
@@ -45,6 +45,9 @@ namespace FMS.View
                 {
                     new CustomerUI().Show();
                     this.Hide();
+                } else
+                {
+                    MessageBox.Show("Invalid username or password.");
                 }
             }
         }
