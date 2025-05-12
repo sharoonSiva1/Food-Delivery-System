@@ -14,7 +14,7 @@ namespace FMS.View
     public partial class RestaurantManageProfileUI : Form
     {
         private Restaurant restaurant;
-        private int RestaurantId = 1; //MAKE SURE TO REMOVE 1 WHEN CHECKING CODE
+        private int RestaurantId;
         public RestaurantManageProfileUI(int restaurantId)
         {
             InitializeComponent();
@@ -30,6 +30,7 @@ namespace FMS.View
 
         private void LoadRestaurantDetails()
         {
+            //MessageBox.Show(RestaurantId.ToString());
             var details = restaurant.GetRestaurantById(RestaurantId);
 
             if (details != null)
@@ -46,17 +47,6 @@ namespace FMS.View
             }
         }
 
-        private void SaveButton_Click(object sender, EventArgs e)
-        {
-            string name = NameTextBox.Text.Trim();
-            string desc = DescTextBox.Text.Trim();
-            string address = AddressTextBox.Text.Trim();
-            TimeSpan opening = OpeningTimeBox.Value.TimeOfDay;
-            TimeSpan closing = ClosingTimeBox.Value.TimeOfDay;
-
-            restaurant.EditRestaurant(RestaurantId,name, desc, address, opening, closing);
-        }
-
         private void GoBackButton_Click(object sender, EventArgs e)
         {
             RestaurantUI restaurantUI = new RestaurantUI(RestaurantId);
@@ -64,9 +54,20 @@ namespace FMS.View
             this.Hide();
         }
 
-        private void RestaurantManageProfileUI_Load(object sender, EventArgs e)
+        private void RestaurantManageProfileUI_Load_1(object sender, EventArgs e)
         {
             LoadRestaurantDetails();
+        }
+
+        private void UpdateProfileButton_Click(object sender, EventArgs e)
+        {
+            string name = NameTextBox.Text.Trim();
+            string desc = DescTextBox.Text.Trim();
+            string address = AddressTextBox.Text.Trim();
+            DateTime opening = OpeningTimeBox.Value;
+            DateTime closing = ClosingTimeBox.Value;
+
+            restaurant.EditRestaurant(RestaurantId, name, desc, address, opening, closing);
         }
     }
 }

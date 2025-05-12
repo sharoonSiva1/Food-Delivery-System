@@ -52,7 +52,7 @@ namespace FMS.Model___Controller
         }
 
         // Edit an existing restaurant
-        public void EditRestaurant(int id, string name, string description, string address, TimeSpan openingTime, TimeSpan closingTime)
+        public void EditRestaurant(int id, string name, string description, string address, DateTime openingTime, DateTime closingTime)
         {
             string query = $"UPDATE restaurants SET ";
             List<string> updateFields = new List<string>();
@@ -63,14 +63,12 @@ namespace FMS.Model___Controller
                 updateFields.Add($"description = '{description}'");
             if (!string.IsNullOrEmpty(address))
                 updateFields.Add($"address = '{address}'");
-            if (openingTime != TimeSpan.Zero)
-                updateFields.Add($"OpenTime = '{openingTime}'");
-            if (closingTime != TimeSpan.Zero)
-                updateFields.Add($"CloseTime = '{closingTime}'");
+            updateFields.Add($"OpenTime = '{openingTime}'");
+            updateFields.Add($"CloseTime = '{closingTime}'");
 
             if (updateFields.Count > 0)
             {
-                query += string.Join(", ", updateFields) + $" WHERE restaurant_id = {id};";
+                query += string.Join(", ", updateFields) + $" WHERE ID = {id};";
 
                 try
                 {
@@ -91,7 +89,7 @@ namespace FMS.Model___Controller
         // Delete a restaurant
         public void DeleteRestaurant(int id)
         {
-            string query = $"DELETE FROM restaurants WHERE restaurant_id = {id};";
+            string query = $"DELETE FROM restaurants WHERE ID = {id};";
 
             try
             {
@@ -146,7 +144,7 @@ namespace FMS.Model___Controller
         public Restaurant GetRestaurantById(int id)
         {
             Restaurant restaurant = null;
-            string query = $"SELECT * FROM restaurants WHERE restaurant_id = {id}";
+            string query = $"SELECT * FROM restaurants WHERE ID = {id}";
 
             try
             {

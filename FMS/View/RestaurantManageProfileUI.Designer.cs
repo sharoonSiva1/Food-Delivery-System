@@ -107,6 +107,7 @@
             this.UpdateProfileButton.TabIndex = 6;
             this.UpdateProfileButton.Text = "Update Profile";
             this.UpdateProfileButton.UseVisualStyleBackColor = true;
+            this.UpdateProfileButton.Click += new System.EventHandler(this.UpdateProfileButton_Click);
             // 
             // DeleteProfileButton
             // 
@@ -190,6 +191,7 @@
             this.Controls.Add(this.label1);
             this.Name = "RestaurantManageProfileUI";
             this.Text = "RestaurantManageProfileUI";
+            this.Load += new System.EventHandler(this.RestaurantManageProfileUI_Load_1);
             this.ResumeLayout(false);
             this.PerformLayout();
 

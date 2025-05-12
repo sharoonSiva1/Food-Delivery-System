@@ -22,7 +22,7 @@ namespace FMS.View
         }
 
         private void ManageProfileButton_Click(object sender, EventArgs e)
-        {            
+        {       
             RestaurantManageProfileUI restaurantManageProfileUI = new RestaurantManageProfileUI(restaurantUserId);
             restaurantManageProfileUI.Show();
             this.Hide();
