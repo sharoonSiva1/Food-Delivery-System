@@ -99,9 +99,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model &amp; Controller\AccountController.cs" />
+    <Compile Include="Model &amp; Controller\Customer.cs" />
     <Compile Include="Model &amp; Controller\DBconnection.cs" />
     <Compile Include="Model &amp; Controller\Restauarant.cs" />
-    <Compile Include="Model &amp; Controller\Users.cs" />
+    <Compile Include="Model &amp; Controller\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\CustomerSignUp.cs">

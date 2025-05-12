@@ -9,9 +9,10 @@ using MySql.Data.MySqlClient;
 
 namespace FMS.Model___Controller
 {
-    internal class DBConnection
+    public class DBConnection
     {
         private MySqlConnection connection;
+        private string connectionString;
 
         public DBConnection()
         {
@@ -65,6 +66,31 @@ namespace FMS.Model___Controller
                     CloseConnection();
                 }
             }
+        }
+
+        public int GetLastInsertId()
+        {
+            int id = -1;
+            if (OpenConnection())
+            {
+                try
+                {
+                    string query = "SELECT LAST_INSERT_ID()";
+                    using (var command = new MySqlCommand(query, connection))
+                    {
+                        id = Convert.ToInt32(command.ExecuteScalar());
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error retrieving last insert ID: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    CloseConnection();
+                }
+            }
+            return id;
         }
 
         public MySqlConnection GetConnection()

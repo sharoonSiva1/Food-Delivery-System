@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace FMS.Model___Controller
 {
-    public class Users
+    public class User
     {
-        private DBConnection dbConnection;
+        protected DBConnection dbConnection;
         public int userID { get; set; }
         public string userName { get; set; }
         public string password { get; set; }
         public int userType { get; set; } // 0 for admin, 1 for restaurant, 2 for delivery person
 
-        public Users()
+        public User()
         {
             dbConnection = new DBConnection();
         }
         public void AddUser(string userName, string password, int userType)
         {
-            string query = $"INSERT INTO users (userName, password, userType) VALUES ('{userName}', '{password}', {userType})";
+            string query = $"INSERT INTO users (Username, Password, Role) VALUES ('{userName}', '{password}', {userType})";
             dbConnection.ExecuteQuery(query);
         }
         public void UpdateUser(int userID, string userName, string password, int userType)

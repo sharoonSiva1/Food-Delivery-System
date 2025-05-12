@@ -47,115 +47,129 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.label1.Location = new System.Drawing.Point(378, 38);
+            this.label1.Location = new System.Drawing.Point(284, 31);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 31);
+            this.label1.Size = new System.Drawing.Size(107, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "Customer";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(241, 124);
+            this.label2.Location = new System.Drawing.Point(181, 101);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 16);
+            this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Name : ";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(227, 155);
+            this.label3.Location = new System.Drawing.Point(170, 126);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 16);
+            this.label3.Size = new System.Drawing.Size(54, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "Address : ";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(215, 188);
+            this.label4.Location = new System.Drawing.Point(161, 153);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 16);
+            this.label4.Size = new System.Drawing.Size(64, 13);
             this.label4.TabIndex = 3;
             this.label4.Text = "Username : ";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(218, 222);
+            this.label5.Location = new System.Drawing.Point(164, 180);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 16);
+            this.label5.Size = new System.Drawing.Size(62, 13);
             this.label5.TabIndex = 4;
             this.label5.Text = "Password : ";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(170, 250);
+            this.label6.Location = new System.Drawing.Point(128, 203);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(124, 16);
+            this.label6.Size = new System.Drawing.Size(100, 13);
             this.label6.TabIndex = 5;
             this.label6.Text = "Confirm Password : ";
             // 
             // NameTextBox
             // 
-            this.NameTextBox.Location = new System.Drawing.Point(320, 118);
+            this.NameTextBox.Location = new System.Drawing.Point(240, 96);
+            this.NameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(134, 22);
+            this.NameTextBox.Size = new System.Drawing.Size(102, 20);
             this.NameTextBox.TabIndex = 6;
             // 
             // AddressTextBox
             // 
-            this.AddressTextBox.Location = new System.Drawing.Point(320, 152);
+            this.AddressTextBox.Location = new System.Drawing.Point(240, 124);
+            this.AddressTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.AddressTextBox.Name = "AddressTextBox";
-            this.AddressTextBox.Size = new System.Drawing.Size(134, 22);
+            this.AddressTextBox.Size = new System.Drawing.Size(102, 20);
             this.AddressTextBox.TabIndex = 7;
             // 
             // UsernameTextBox
             // 
-            this.UsernameTextBox.Location = new System.Drawing.Point(320, 185);
+            this.UsernameTextBox.Location = new System.Drawing.Point(240, 150);
+            this.UsernameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.UsernameTextBox.Name = "UsernameTextBox";
-            this.UsernameTextBox.Size = new System.Drawing.Size(134, 22);
+            this.UsernameTextBox.Size = new System.Drawing.Size(102, 20);
             this.UsernameTextBox.TabIndex = 8;
             // 
             // PasswordTextBox
             // 
-            this.PasswordTextBox.Location = new System.Drawing.Point(320, 219);
+            this.PasswordTextBox.Location = new System.Drawing.Point(240, 178);
+            this.PasswordTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PasswordTextBox.Name = "PasswordTextBox";
-            this.PasswordTextBox.Size = new System.Drawing.Size(134, 22);
+            this.PasswordTextBox.Size = new System.Drawing.Size(102, 20);
             this.PasswordTextBox.TabIndex = 9;
             // 
             // ConfirmPasswordTextBox
             // 
-            this.ConfirmPasswordTextBox.Location = new System.Drawing.Point(320, 250);
+            this.ConfirmPasswordTextBox.Location = new System.Drawing.Point(240, 203);
+            this.ConfirmPasswordTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ConfirmPasswordTextBox.Name = "ConfirmPasswordTextBox";
-            this.ConfirmPasswordTextBox.Size = new System.Drawing.Size(134, 22);
+            this.ConfirmPasswordTextBox.Size = new System.Drawing.Size(102, 20);
             this.ConfirmPasswordTextBox.TabIndex = 10;
             // 
             // GoBackButton
             // 
-            this.GoBackButton.Location = new System.Drawing.Point(515, 207);
+            this.GoBackButton.Location = new System.Drawing.Point(386, 168);
+            this.GoBackButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.GoBackButton.Name = "GoBackButton";
-            this.GoBackButton.Size = new System.Drawing.Size(99, 34);
+            this.GoBackButton.Size = new System.Drawing.Size(74, 28);
             this.GoBackButton.TabIndex = 11;
             this.GoBackButton.Text = "Go Back";
             this.GoBackButton.UseVisualStyleBackColor = true;
             // 
             // RegisterButton
             // 
-            this.RegisterButton.Location = new System.Drawing.Point(515, 155);
+            this.RegisterButton.Location = new System.Drawing.Point(386, 126);
+            this.RegisterButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.RegisterButton.Name = "RegisterButton";
-            this.RegisterButton.Size = new System.Drawing.Size(99, 34);
+            this.RegisterButton.Size = new System.Drawing.Size(74, 28);
             this.RegisterButton.TabIndex = 12;
             this.RegisterButton.Text = "Register";
             this.RegisterButton.UseVisualStyleBackColor = true;
+            this.RegisterButton.Click += new System.EventHandler(this.RegisterButton_Click);
             // 
             // CustomerSignUp
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.RegisterButton);
             this.Controls.Add(this.GoBackButton);
             this.Controls.Add(this.ConfirmPasswordTextBox);
@@ -169,6 +183,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "CustomerSignUp";
             this.Text = "CustomerSignUp";
             this.ResumeLayout(false);
