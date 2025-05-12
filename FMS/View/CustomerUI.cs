@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace FMS.View
 {
-    public partial class RestaurantSignUp : Form
+    public partial class CustomerUI : Form
     {
-        public RestaurantSignUp()
+        public CustomerUI()
         {
             InitializeComponent();
-        }
-
-        private void GoBackButton_Click(object sender, EventArgs e)
-        {
-            new SignUp().Show();
-            this.Hide();
         }
     }
 }

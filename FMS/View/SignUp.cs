@@ -16,5 +16,23 @@ namespace FMS.View
         {
             InitializeComponent();
         }
+
+        private void CustomerButton_Click(object sender, EventArgs e)
+        {
+            new CustomerSignUp().Show();
+            this.Hide();
+        }
+
+        private void RestaurantButton_Click(object sender, EventArgs e)
+        {
+            new RestaurantSignUp().Show();
+            this.Hide();
+        }
+
+        private void DeliveryDriverButton_Click(object sender, EventArgs e)
+        {
+            new DriverSignUp().Show();
+            this.Hide();
+        }
     }
 }
