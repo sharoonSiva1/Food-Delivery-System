@@ -16,5 +16,19 @@ namespace FMS.View
         {
             InitializeComponent();
         }
+
+        private void ManageProfileButton_Click(object sender, EventArgs e)
+        {            
+            RestaurantManageProfileUI restaurantManageProfileUI = new RestaurantManageProfileUI();
+            restaurantManageProfileUI.Show();
+            this.Hide();
+        }
+
+        private void ManageMenuButton_Click(object sender, EventArgs e)
+        {
+            RestaurantManageMenuUI restaurantManageMenuUI = new RestaurantManageMenuUI();
+            restaurantManageMenuUI.Show();
+            this.Hide();
+        }
     }
 }

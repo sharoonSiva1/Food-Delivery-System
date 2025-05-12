@@ -99,7 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model &amp; Controller\DBconnection.cs" />
-    <Compile Include="Model &amp; Controller\Restauarant.cs" />
+    <Compile Include="Model &amp; Controller\Restaurant.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\CustomerSignUp.cs">

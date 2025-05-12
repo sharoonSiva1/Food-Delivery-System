@@ -51,6 +51,7 @@
             this.ManageProfileButton.TabIndex = 1;
             this.ManageProfileButton.Text = "Manage Profile";
             this.ManageProfileButton.UseVisualStyleBackColor = true;
+            this.ManageProfileButton.Click += new System.EventHandler(this.ManageProfileButton_Click);
             // 
             // ManageMenuButton
             // 
@@ -60,6 +61,7 @@
             this.ManageMenuButton.TabIndex = 2;
             this.ManageMenuButton.Text = "Manage Menu";
             this.ManageMenuButton.UseVisualStyleBackColor = true;
+            this.ManageMenuButton.Click += new System.EventHandler(this.ManageMenuButton_Click);
             // 
             // RestaurantUI
             // 
