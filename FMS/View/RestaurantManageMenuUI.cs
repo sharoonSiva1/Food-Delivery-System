@@ -39,5 +39,20 @@ namespace FMS.View
             Model___Controller.Menu menuItem = new Model___Controller.Menu();
             menuItem.LoadMenuItemsForRestaurant(RestaurantId, menuItemsGrid);
         }
+
+        private void UpdateItemButton_Click(object sender, EventArgs e)
+        {
+            if (menuItemsGrid.SelectedRows.Count > 0)
+            {
+                int itemId = Convert.ToInt32(menuItemsGrid.SelectedRows[0].Cells["ItemID"].Value);
+                RestaurantMenuEditItems editForm = new RestaurantMenuEditItems(itemId, RestaurantId);
+                editForm.Show();
+                this.Hide(); // or this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Please select an item first.");
+            }
+        }
     }
 }

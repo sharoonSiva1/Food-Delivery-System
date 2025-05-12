@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.Odbc;
 
 namespace FMS.Model___Controller
 {
@@ -113,6 +114,32 @@ namespace FMS.Model___Controller
                 }
             }
         }
+        public DataTable GetMenuItemById(int itemId)
+        {
+            DataTable dt = new DataTable();
+            string query = $"SELECT * FROM menuitems WHERE ItemID = {itemId}";
 
+            if (db.OpenConnection())
+            {
+                try
+                {
+                    using (var command = new MySqlCommand(query, db.GetConnection()))
+                    using (var adapter = new MySqlDataAdapter(command))
+                    {
+                        adapter.Fill(dt);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error fetching menu item: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    db.CloseConnection();
+                }
+            }
+
+            return dt;
+        }
     }
 }

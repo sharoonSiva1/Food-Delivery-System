@@ -66,6 +66,7 @@
             this.UpdateItemButton.TabIndex = 2;
             this.UpdateItemButton.Text = "Update";
             this.UpdateItemButton.UseVisualStyleBackColor = true;
+            this.UpdateItemButton.Click += new System.EventHandler(this.UpdateItemButton_Click);
             // 
             // RemoveItemButton
             // 
