@@ -150,15 +150,22 @@
             // 
             // OpeningTimeBox
             // 
+            this.OpeningTimeBox.CustomFormat = "hh:mm tt";
             this.OpeningTimeBox.Location = new System.Drawing.Point(293, 218);
+            this.OpeningTimeBox.MaxDate = new System.DateTime(2025, 5, 20, 0, 0, 0, 0);
+            this.OpeningTimeBox.MinDate = new System.DateTime(2025, 5, 12, 0, 0, 0, 0);
             this.OpeningTimeBox.Name = "OpeningTimeBox";
+            this.OpeningTimeBox.ShowUpDown = true;
             this.OpeningTimeBox.Size = new System.Drawing.Size(200, 22);
             this.OpeningTimeBox.TabIndex = 12;
+            this.OpeningTimeBox.Value = new System.DateTime(2025, 5, 12, 19, 29, 0, 0);
             // 
             // ClosingTimeBox
             // 
+            this.ClosingTimeBox.CustomFormat = "hh:mm tt";
             this.ClosingTimeBox.Location = new System.Drawing.Point(293, 248);
             this.ClosingTimeBox.Name = "ClosingTimeBox";
+            this.ClosingTimeBox.ShowUpDown = true;
             this.ClosingTimeBox.Size = new System.Drawing.Size(200, 22);
             this.ClosingTimeBox.TabIndex = 13;
             // 

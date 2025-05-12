@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FMS.Model___Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,17 @@ namespace FMS.View
 {
     public partial class RestaurantUI : Form
     {
-        public RestaurantUI()
+        private int restaurantUserId;
+        public RestaurantUI(int userID)
         {
             InitializeComponent();
+            restaurantUserId = userID;
+
         }
 
         private void ManageProfileButton_Click(object sender, EventArgs e)
         {            
-            RestaurantManageProfileUI restaurantManageProfileUI = new RestaurantManageProfileUI();
+            RestaurantManageProfileUI restaurantManageProfileUI = new RestaurantManageProfileUI(restaurantUserId);
             restaurantManageProfileUI.Show();
             this.Hide();
         }
