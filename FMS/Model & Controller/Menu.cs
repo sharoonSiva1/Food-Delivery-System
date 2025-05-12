@@ -19,7 +19,7 @@ namespace FMS.Model___Controller
         }
 
         // Add new menu item
-        public void AddItem(int restaurantId, string name, string description, int price, string availability)
+        public void AddItem(int restaurantId, string name, string description, decimal price, string availability)
         {
             string query = $"INSERT INTO menuitems (RestaurantID, Name, Description, Price, Availability) " +
                            $"VALUES ('{restaurantId}', '{name}', '{description}', {price}, '{availability}')";
@@ -36,7 +36,7 @@ namespace FMS.Model___Controller
         }
 
         // Edit existing item
-        public void EditItem(int itemId, string name, string description, int price, string availability)
+        public void EditItem(int itemId, string name, string description, decimal price, string availability)
         {
             string query = "UPDATE menuitems SET ";
             var updates = new System.Collections.Generic.List<string>();

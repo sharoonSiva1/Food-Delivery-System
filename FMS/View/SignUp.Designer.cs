@@ -40,10 +40,9 @@
             // 
             this.SignUpLabel.AutoSize = true;
             this.SignUpLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.SignUpLabel.Location = new System.Drawing.Point(245, 29);
-            this.SignUpLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.SignUpLabel.Location = new System.Drawing.Point(327, 36);
             this.SignUpLabel.Name = "SignUpLabel";
-            this.SignUpLabel.Size = new System.Drawing.Size(110, 31);
+            this.SignUpLabel.Size = new System.Drawing.Size(139, 39);
             this.SignUpLabel.TabIndex = 0;
             this.SignUpLabel.Text = "Sign Up";
             // 
@@ -51,19 +50,18 @@
             // 
             this.AccTypeLabel.AutoSize = true;
             this.AccTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.AccTypeLabel.Location = new System.Drawing.Point(224, 80);
-            this.AccTypeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.AccTypeLabel.Location = new System.Drawing.Point(299, 98);
             this.AccTypeLabel.Name = "AccTypeLabel";
-            this.AccTypeLabel.Size = new System.Drawing.Size(155, 20);
+            this.AccTypeLabel.Size = new System.Drawing.Size(194, 25);
             this.AccTypeLabel.TabIndex = 1;
             this.AccTypeLabel.Text = "Select Account Type";
             // 
             // RestaurantButton
             // 
-            this.RestaurantButton.Location = new System.Drawing.Point(250, 124);
-            this.RestaurantButton.Margin = new System.Windows.Forms.Padding(2);
+            this.RestaurantButton.Location = new System.Drawing.Point(333, 153);
+            this.RestaurantButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RestaurantButton.Name = "RestaurantButton";
-            this.RestaurantButton.Size = new System.Drawing.Size(99, 35);
+            this.RestaurantButton.Size = new System.Drawing.Size(132, 43);
             this.RestaurantButton.TabIndex = 2;
             this.RestaurantButton.Text = "Restaurant";
             this.RestaurantButton.UseVisualStyleBackColor = true;
@@ -71,10 +69,10 @@
             // 
             // CustomerButton
             // 
-            this.CustomerButton.Location = new System.Drawing.Point(250, 179);
-            this.CustomerButton.Margin = new System.Windows.Forms.Padding(2);
+            this.CustomerButton.Location = new System.Drawing.Point(333, 220);
+            this.CustomerButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CustomerButton.Name = "CustomerButton";
-            this.CustomerButton.Size = new System.Drawing.Size(99, 35);
+            this.CustomerButton.Size = new System.Drawing.Size(132, 43);
             this.CustomerButton.TabIndex = 3;
             this.CustomerButton.Text = "Customer";
             this.CustomerButton.UseVisualStyleBackColor = true;
@@ -82,10 +80,10 @@
             // 
             // DeliveryDriverButton
             // 
-            this.DeliveryDriverButton.Location = new System.Drawing.Point(250, 233);
-            this.DeliveryDriverButton.Margin = new System.Windows.Forms.Padding(2);
+            this.DeliveryDriverButton.Location = new System.Drawing.Point(333, 287);
+            this.DeliveryDriverButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DeliveryDriverButton.Name = "DeliveryDriverButton";
-            this.DeliveryDriverButton.Size = new System.Drawing.Size(99, 35);
+            this.DeliveryDriverButton.Size = new System.Drawing.Size(132, 43);
             this.DeliveryDriverButton.TabIndex = 4;
             this.DeliveryDriverButton.Text = "Delivery Driver";
             this.DeliveryDriverButton.UseVisualStyleBackColor = true;
@@ -93,26 +91,27 @@
             // 
             // GoBackButton
             // 
-            this.GoBackButton.Location = new System.Drawing.Point(272, 290);
-            this.GoBackButton.Margin = new System.Windows.Forms.Padding(2);
+            this.GoBackButton.Location = new System.Drawing.Point(349, 348);
+            this.GoBackButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.GoBackButton.Name = "GoBackButton";
-            this.GoBackButton.Size = new System.Drawing.Size(56, 22);
+            this.GoBackButton.Size = new System.Drawing.Size(99, 36);
             this.GoBackButton.TabIndex = 5;
             this.GoBackButton.Text = "Go Back";
             this.GoBackButton.UseVisualStyleBackColor = true;
+            this.GoBackButton.Click += new System.EventHandler(this.GoBackButton_Click);
             // 
             // SignUp
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.GoBackButton);
             this.Controls.Add(this.DeliveryDriverButton);
             this.Controls.Add(this.CustomerButton);
             this.Controls.Add(this.RestaurantButton);
             this.Controls.Add(this.AccTypeLabel);
             this.Controls.Add(this.SignUpLabel);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "SignUp";
             this.Text = "SignUp";
             this.ResumeLayout(false);
