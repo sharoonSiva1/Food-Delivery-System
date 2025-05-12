@@ -22,5 +22,15 @@ namespace FMS.Model___Controller
             // string query = $"INSERT INTO users (username, password, userType) VALUES ('{username}', '{password}', {userType})";
             // dbConnection.ExecuteQuery(query);
         }
+
+        public void Login(string username, string password, string confirmPassword) 
+        { 
+            if (password != confirmPassword)
+            {
+                throw new Exception("Passwords do not match.");
+            }
+
+            // Logic to log in the user
+        }
     }
 }

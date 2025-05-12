@@ -101,7 +101,7 @@
     <Compile Include="Model &amp; Controller\AccountController.cs" />
     <Compile Include="Model &amp; Controller\Customer.cs" />
     <Compile Include="Model &amp; Controller\DBconnection.cs" />
-    <Compile Include="Model &amp; Controller\Restauarant.cs" />
+    <Compile Include="Model &amp; Controller\Restaurant.cs" />
     <Compile Include="Model &amp; Controller\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

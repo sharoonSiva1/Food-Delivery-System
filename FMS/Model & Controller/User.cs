@@ -1,8 +1,11 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace FMS.Model___Controller
 {
@@ -28,10 +31,35 @@ namespace FMS.Model___Controller
             string query = $"UPDATE users SET userName = '{userName}', password = '{password}', userType = {userType} WHERE userID = {userID}";
             dbConnection.ExecuteQuery(query);
         }
-        public void DeleteUser(int userID)
+
+        public int GetUserRole(string username) 
         {
-            string query = $"DELETE FROM users WHERE userID = {userID}";
-            dbConnection.ExecuteQuery(query);
+            int roleId = 0;
+            if (dbConnection.OpenConnection())
+            {
+                try
+                {
+                    string query = "SELECT Role FROM Users Where Username = @Username LIMIT 1";
+                    using (var command = new MySqlCommand(query, dbConnection.GetConnection()))
+                    {
+                        command.Parameters.AddWithValue("@Username", username);
+                        object result = command.ExecuteScalar();
+                        if (result != null)
+                        {
+                            roleId = (int)result;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error retrieving user : " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    dbConnection.CloseConnection();
+                }
+            }
+            return roleId;
         }
     }
 }
