@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FMS
+namespace FMS.View
 {
-    public partial class Form1 : Form
+    public partial class RestaurantSignUp : Form
     {
-        public Form1()
+        public RestaurantSignUp()
         {
             InitializeComponent();
         }
