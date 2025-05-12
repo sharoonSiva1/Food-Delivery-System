@@ -79,10 +79,11 @@
             // 
             this.GoBackButton.Location = new System.Drawing.Point(589, 299);
             this.GoBackButton.Name = "GoBackButton";
-            this.GoBackButton.Size = new System.Drawing.Size(75, 29);
+            this.GoBackButton.Size = new System.Drawing.Size(82, 29);
             this.GoBackButton.TabIndex = 4;
             this.GoBackButton.Text = "Go Back";
             this.GoBackButton.UseVisualStyleBackColor = true;
+            this.GoBackButton.Click += new System.EventHandler(this.GoBackButton_Click);
             // 
             // MenuLabel
             // 
