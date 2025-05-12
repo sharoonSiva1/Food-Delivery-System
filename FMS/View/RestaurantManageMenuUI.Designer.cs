@@ -28,12 +28,98 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.MenuDataGridView = new System.Windows.Forms.DataGridView();
+            this.AddItemButton = new System.Windows.Forms.Button();
+            this.UpdateItemButton = new System.Windows.Forms.Button();
+            this.RemoveItemButton = new System.Windows.Forms.Button();
+            this.GoBackButton = new System.Windows.Forms.Button();
+            this.MenuLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.MenuDataGridView)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // MenuDataGridView
+            // 
+            this.MenuDataGridView.AllowUserToOrderColumns = true;
+            this.MenuDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MenuDataGridView.Location = new System.Drawing.Point(64, 104);
+            this.MenuDataGridView.Name = "MenuDataGridView";
+            this.MenuDataGridView.RowHeadersWidth = 51;
+            this.MenuDataGridView.RowTemplate.Height = 24;
+            this.MenuDataGridView.Size = new System.Drawing.Size(686, 180);
+            this.MenuDataGridView.TabIndex = 0;
+            // 
+            // AddItemButton
+            // 
+            this.AddItemButton.Location = new System.Drawing.Point(119, 299);
+            this.AddItemButton.Name = "AddItemButton";
+            this.AddItemButton.Size = new System.Drawing.Size(75, 29);
+            this.AddItemButton.TabIndex = 1;
+            this.AddItemButton.Text = "Add";
+            this.AddItemButton.UseVisualStyleBackColor = true;
+            // 
+            // UpdateItemButton
+            // 
+            this.UpdateItemButton.Location = new System.Drawing.Point(285, 299);
+            this.UpdateItemButton.Name = "UpdateItemButton";
+            this.UpdateItemButton.Size = new System.Drawing.Size(75, 29);
+            this.UpdateItemButton.TabIndex = 2;
+            this.UpdateItemButton.Text = "Update";
+            this.UpdateItemButton.UseVisualStyleBackColor = true;
+            // 
+            // RemoveItemButton
+            // 
+            this.RemoveItemButton.Location = new System.Drawing.Point(438, 299);
+            this.RemoveItemButton.Name = "RemoveItemButton";
+            this.RemoveItemButton.Size = new System.Drawing.Size(75, 29);
+            this.RemoveItemButton.TabIndex = 3;
+            this.RemoveItemButton.Text = "Remove";
+            this.RemoveItemButton.UseVisualStyleBackColor = true;
+            // 
+            // GoBackButton
+            // 
+            this.GoBackButton.Location = new System.Drawing.Point(589, 299);
+            this.GoBackButton.Name = "GoBackButton";
+            this.GoBackButton.Size = new System.Drawing.Size(75, 29);
+            this.GoBackButton.TabIndex = 4;
+            this.GoBackButton.Text = "Go Back";
+            this.GoBackButton.UseVisualStyleBackColor = true;
+            // 
+            // MenuLabel
+            // 
+            this.MenuLabel.AutoSize = true;
+            this.MenuLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.MenuLabel.Location = new System.Drawing.Point(68, 49);
+            this.MenuLabel.Name = "MenuLabel";
+            this.MenuLabel.Size = new System.Drawing.Size(81, 31);
+            this.MenuLabel.TabIndex = 5;
+            this.MenuLabel.Text = "Menu";
+            // 
+            // RestaurantManageMenuUI
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.MenuLabel);
+            this.Controls.Add(this.GoBackButton);
+            this.Controls.Add(this.RemoveItemButton);
+            this.Controls.Add(this.UpdateItemButton);
+            this.Controls.Add(this.AddItemButton);
+            this.Controls.Add(this.MenuDataGridView);
+            this.Name = "RestaurantManageMenuUI";
             this.Text = "RestaurantManageMenuUI";
+            ((System.ComponentModel.ISupportInitialize)(this.MenuDataGridView)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView MenuDataGridView;
+        private System.Windows.Forms.Button AddItemButton;
+        private System.Windows.Forms.Button UpdateItemButton;
+        private System.Windows.Forms.Button RemoveItemButton;
+        private System.Windows.Forms.Button GoBackButton;
+        private System.Windows.Forms.Label MenuLabel;
     }
 }
