@@ -153,6 +153,7 @@
             this.GoBackButton.TabIndex = 11;
             this.GoBackButton.Text = "Go Back";
             this.GoBackButton.UseVisualStyleBackColor = true;
+            this.GoBackButton.Click += new System.EventHandler(this.GoBackButton_Click);
             // 
             // RegisterButton
             // 

@@ -27,5 +27,11 @@ namespace FMS.View
 
             new Customer().AddCustomer(Username, Password, CustomerName, Address);
         }
+
+        private void GoBackButton_Click(object sender, EventArgs e)
+        {
+            new SignUp().Show();
+            this.Hide();
+        }
     }
 }

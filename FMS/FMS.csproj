@@ -111,11 +111,23 @@
     <Compile Include="View\CustomerSignUp.Designer.cs">
       <DependentUpon>CustomerSignUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\CustomerUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CustomerUI.Designer.cs">
+      <DependentUpon>CustomerUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\DriverSignUp.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\DriverSignUp.Designer.cs">
       <DependentUpon>DriverSignUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\DriverUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\DriverUI.Designer.cs">
+      <DependentUpon>DriverUI.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Login.cs">
       <SubType>Form</SubType>

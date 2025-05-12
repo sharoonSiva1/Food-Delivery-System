@@ -32,34 +32,43 @@ namespace FMS.Model___Controller
             dbConnection.ExecuteQuery(query);
         }
 
-        public int GetUserRole(string username) 
+        public User GetUser(string username)
         {
-            int roleId = 0;
+            User user = null;
             if (dbConnection.OpenConnection())
             {
                 try
                 {
-                    string query = "SELECT Role FROM Users Where Username = @Username LIMIT 1";
+                    string query = "SELECT * FROM Users WHERE Username = @Username LIMIT 1";
                     using (var command = new MySqlCommand(query, dbConnection.GetConnection()))
                     {
                         command.Parameters.AddWithValue("@Username", username);
-                        object result = command.ExecuteScalar();
-                        if (result != null)
+                        using (var reader = command.ExecuteReader())
                         {
-                            roleId = (int)result;
+                            if (reader.Read())
+                            {
+                                user = new User
+                                {
+                                    userID = reader.GetInt32("ID"),
+                                    userName = reader.GetString("Username"),
+                                    password = reader.GetString("Password"),
+                                    userType = reader.GetInt32("Role")
+                                };
+                            }
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error retrieving user : " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error retrieving user: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
                     dbConnection.CloseConnection();
                 }
             }
-            return roleId;
+            return user;
         }
+
     }
 }

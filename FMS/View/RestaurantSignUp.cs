@@ -16,5 +16,11 @@ namespace FMS.View
         {
             InitializeComponent();
         }
+
+        private void GoBackButton_Click(object sender, EventArgs e)
+        {
+            new SignUp().Show();
+            this.Hide();
+        }
     }
 }

@@ -23,25 +23,29 @@ namespace FMS.View
             string username = UsernameTextBox.Text;
             string password = PasswordTextBox.Text;
 
-            int roleId = new User().GetUserRole(username);
-            if (roleId == 1)
-            {
-                new RestaurantUI().Show();
-                this.Hide();
-            }
-            else if (roleId == 2)
-            {
-                new DriverUI().Show();
-                this.Hide();
-            }
-            else if (roleId == 3)
-            {
-                new CustomerUI().Show();
-                this.Hide();
-            }
-            else
+            User user = new User().GetUser(username);
+
+            if (user.password != password && user != null)
             {
                 MessageBox.Show("Invalid username or password.");
+                return;
+            } else
+            {
+                if (user.userType == 1)
+                {
+                    new RestaurantUI().Show();
+                    this.Hide();
+                }
+                else if (user.userType == 2)
+                {
+                    new DriverUI().Show();
+                    this.Hide();
+                }
+                else if (user.userType == 3)
+                {
+                    new CustomerUI().Show();
+                    this.Hide();
+                }
             }
         }
 
