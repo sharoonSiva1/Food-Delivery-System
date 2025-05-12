@@ -36,12 +36,33 @@ namespace FMS.View
             string password = PasswordTextBox.Text;
             string confirmPassword = ConfirmPasswordTextBox.Text;
 
-            if (password == confirmPassword) 
+            if (password == confirmPassword)
             {
                 Restaurant rest = new Restaurant();
+                bool created = rest.CreateRestaurant(username, password, restName, description, address, OpenTime, CloseTime);
 
-                rest.CreateRestaurant(username, password, restName, description,  address, OpenTime, CloseTime);
+                if (created)
+                {
+                    Login login = new Login();
+                    login.Show();
+                    this.Hide();
+                }
             }
+            else
+            {
+                MessageBox.Show("Passwords do not match.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void RestaurantSignUp_Load(object sender, EventArgs e)
+        {
+            OpenTimeBox.Format = DateTimePickerFormat.Custom;
+            OpenTimeBox.CustomFormat = "HH:mm";
+            OpenTimeBox.ShowUpDown = true;
+
+            CloseTimeBox.Format = DateTimePickerFormat.Custom;
+            CloseTimeBox.CustomFormat = "HH:mm";
+            CloseTimeBox.ShowUpDown = true;
 
         }
     }

@@ -181,11 +181,13 @@
             // 
             // OpenTimeBox
             // 
+            this.OpenTimeBox.CustomFormat = "";
             this.OpenTimeBox.Location = new System.Drawing.Point(372, 194);
             this.OpenTimeBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.OpenTimeBox.Name = "OpenTimeBox";
             this.OpenTimeBox.Size = new System.Drawing.Size(175, 22);
             this.OpenTimeBox.TabIndex = 15;
+            this.OpenTimeBox.Value = new System.DateTime(2025, 5, 13, 2, 56, 46, 0);
             // 
             // CloseTimeBox
             // 
@@ -244,6 +246,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "RestaurantSignUp";
             this.Text = "RestaurantSignUp";
+            this.Load += new System.EventHandler(this.RestaurantSignUp_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
