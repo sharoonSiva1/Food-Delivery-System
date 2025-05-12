@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace FMS.View
+{
+    public partial class RestaurantMenuAddItem : Form
+    {
+        private int RestaurantId;
+        public RestaurantMenuAddItem(int restaurantUserId)
+        {
+            InitializeComponent();
+            RestaurantId = restaurantUserId;
+        }
+    }
+}

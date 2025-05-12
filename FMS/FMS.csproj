@@ -102,6 +102,7 @@
     <Compile Include="Model &amp; Controller\Customer.cs" />
     <Compile Include="Model &amp; Controller\DBconnection.cs" />
     <Compile Include="Model &amp; Controller\Driver.cs" />
+    <Compile Include="Model &amp; Controller\Menu.cs" />
     <Compile Include="Model &amp; Controller\Restaurant.cs" />
     <Compile Include="Model &amp; Controller\User.cs" />
     <Compile Include="Program.cs" />
@@ -148,6 +149,12 @@
     <Compile Include="View\RestaurantManageProfileUI.Designer.cs">
       <DependentUpon>RestaurantManageProfileUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\RestaurantMenuAddItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\RestaurantMenuAddItem.Designer.cs">
+      <DependentUpon>RestaurantMenuAddItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\RestaurantSignUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\RestaurantManageProfileUI.resx">
       <DependentUpon>RestaurantManageProfileUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\RestaurantMenuAddItem.resx">
+      <DependentUpon>RestaurantMenuAddItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\RestaurantSignUp.resx">
       <DependentUpon>RestaurantSignUp.cs</DependentUpon>
