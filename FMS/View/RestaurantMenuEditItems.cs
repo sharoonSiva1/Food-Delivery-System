@@ -70,8 +70,8 @@ namespace FMS.View
                     return;
                 }
 
-                Model___Controller.Menu model = new Model___Controller.Menu();
-                model.EditItem(ItemID, updatedName, updatedDesc, updatedPrice, availabilityText);
+                Model___Controller.Menu updateItem = new Model___Controller.Menu();
+                updateItem.EditItem(ItemID, updatedName, updatedDesc, updatedPrice, availabilityText);
 
                 this.Close();
                 RestaurantManageMenuUI manageForm = new RestaurantManageMenuUI(RestaurantID);
