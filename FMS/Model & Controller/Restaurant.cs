@@ -9,9 +9,8 @@ using MySql.Data.MySqlClient;
 
 namespace FMS.Model___Controller
 {
-    internal class Restaurant
+    internal class Restaurant : User
     {
-        public int RestaurantId { get; set; }
         public string RestaurantName { get; set; }
         public string Description { get; set; }
         public string Address { get; set; }
@@ -21,16 +20,25 @@ namespace FMS.Model___Controller
 
         private DBConnection connection;
 
-        public Restaurant()
+        public Restaurant() : base()
         {
             connection = new DBConnection();
         }
 
         // Create a new restaurant
-        public void CreateRestaurant(string name, string description, string address, TimeSpan openingTime, TimeSpan closingTime, string review)
+        public void CreateRestaurant(string username, string password, string name, string description, string address, DateTime openingTime, DateTime closingTime)
         {
-            string query = $"INSERT INTO restaurants (Name, Description, Address, OpenTime, CloseTime, Review) " +
-                           $"VALUES ('{name}', '{description}', '{address}', '{openingTime}', '{closingTime}', '{review}');";
+
+            this.userName = username;
+            this.password = password;
+            this.userType = 1; // 1 for Customer
+
+            AddUser(userName, password, this.userType);
+
+            int lastUserId = dbConnection.GetLastInsertId();
+
+            string query = $"INSERT INTO restaurants (ID, Name, Description, Address, OpenTime, CloseTime) " +
+                           $"VALUES ('{lastUserId}', '{name}', '{description}', '{address}', '{openingTime}', '{closingTime}');";
 
             try
             {
@@ -113,7 +121,6 @@ namespace FMS.Model___Controller
                         {
                             Restaurant restaurant = new Restaurant
                             {
-                                RestaurantId = Convert.ToInt32(reader["restaurant_id"]),
                                 RestaurantName = reader["Name"].ToString(),
                                 Description = reader["description"].ToString(),
                                 Address = reader["address"].ToString(),
@@ -152,7 +159,6 @@ namespace FMS.Model___Controller
                         {
                             restaurant = new Restaurant
                             {
-                                RestaurantId = Convert.ToInt32(reader["restaurant_id"]),
                                 RestaurantName = reader["Name"].ToString(),
                                 Description = reader["Description"].ToString(),
                                 Address = reader["Address"].ToString(),

@@ -20,7 +20,7 @@ namespace FMS.Model___Controller
             // Step 1: Create base user
             this.userName = userName;
             this.password = password;
-            this.userType = 3; // 3 for Customer
+            this.userType = 2; // 2 for Customer
 
             AddUser(userName, password, this.userType);
 
@@ -30,7 +30,5 @@ namespace FMS.Model___Controller
             dbConnection.ExecuteQuery(query);
 
         }
-    }
-
     }
 }

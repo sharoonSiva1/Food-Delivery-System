@@ -19,9 +19,9 @@ namespace FMS.View
 
         private void GoBackButton_Click(object sender, EventArgs e)
         {
-            RestaurantUI restaurantUI = new RestaurantUI();
-            restaurantUI.Show();
-            this.Hide();
+            //RestaurantUI restaurantUI = new RestaurantUI();
+            //restaurantUI.Show();
+            //this.Hide();
         }
     }
 }
