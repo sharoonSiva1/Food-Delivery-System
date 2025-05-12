@@ -16,5 +16,16 @@ namespace FMS.View
         {
             InitializeComponent();
         }
+
+        private void LoginButton_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void SignUpButton_Click(object sender, EventArgs e)
+        {
+            new SignUp().Show();
+            this.Hide();
+        }
     }
 }

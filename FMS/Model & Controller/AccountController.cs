@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FMS.Model___Controller
 {
-    internal class Account
+    internal class AccountController
     {
     }
 }
