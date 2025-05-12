@@ -50,6 +50,7 @@
             this.RegisterButton.TabIndex = 25;
             this.RegisterButton.Text = "Register";
             this.RegisterButton.UseVisualStyleBackColor = true;
+            this.RegisterButton.Click += new System.EventHandler(this.RegisterButton_Click);
             // 
             // GoBackButton
             // 

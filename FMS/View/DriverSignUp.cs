@@ -22,5 +22,12 @@ namespace FMS.View
             new SignUp().Show();
             this.Hide();
         }
+
+        private void RegisterButton_Click(object sender, EventArgs e)
+        {
+            string username = UsernameTextBox.Text;
+            string password = PasswordTextBox.Text;
+            string name = NameTextBox.Text;
+        }
     }
 }
