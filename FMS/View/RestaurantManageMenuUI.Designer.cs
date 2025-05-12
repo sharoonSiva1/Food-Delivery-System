@@ -76,6 +76,7 @@
             this.RemoveItemButton.TabIndex = 3;
             this.RemoveItemButton.Text = "Remove";
             this.RemoveItemButton.UseVisualStyleBackColor = true;
+            this.RemoveItemButton.Click += new System.EventHandler(this.RemoveItemButton_Click);
             // 
             // GoBackButton
             // 
