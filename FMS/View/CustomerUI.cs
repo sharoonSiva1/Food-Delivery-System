@@ -12,7 +12,7 @@ namespace FMS.View
 {
     public partial class CustomerUI : Form
     {
-        public CustomerUI()
+        public CustomerUI(int customerId)
         {
             InitializeComponent();
         }
