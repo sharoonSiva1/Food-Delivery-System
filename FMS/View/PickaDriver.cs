@@ -1,21 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
+<<<<<<< HEAD
 using System.Data;
 using System.Windows.Forms;
 using FMS.Model___Controller;
 using MySql.Data.MySqlClient;
+=======
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+>>>>>>> c5019d217a9aabaad3ea5b91650c94a1de16a8d9
 
 namespace FMS.View
 {
     public partial class PickaDriver : Form
     {
         int orderId;
+<<<<<<< HEAD
         List<(int Id, string Name)> drivers = new List<(int, string)>();
+=======
+>>>>>>> c5019d217a9aabaad3ea5b91650c94a1de16a8d9
 
         public PickaDriver(int orderId)
         {
             InitializeComponent();
             this.orderId = orderId;
+<<<<<<< HEAD
             LoadDrivers();
         }
 
@@ -70,3 +84,9 @@ namespace FMS.View
         }
     }
 }
+=======
+        }
+
+    }
+}
+>>>>>>> c5019d217a9aabaad3ea5b91650c94a1de16a8d9

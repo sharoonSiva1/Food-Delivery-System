@@ -24,6 +24,7 @@ namespace FMS.View
         {
 
         }
+<<<<<<< HEAD
 
         private void CardNumbertxtbox_TextChanged(object sender, EventArgs e)
         {
@@ -76,5 +77,7 @@ namespace FMS.View
             driverForm.Show();
         }
 
+=======
+>>>>>>> c5019d217a9aabaad3ea5b91650c94a1de16a8d9
     }
 }

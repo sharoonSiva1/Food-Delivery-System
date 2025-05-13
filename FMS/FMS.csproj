@@ -103,10 +103,24 @@
     <Compile Include="Model &amp; Controller\DBconnection.cs" />
     <Compile Include="Model &amp; Controller\Driver.cs" />
     <Compile Include="Model &amp; Controller\Menu.cs" />
+    <Compile Include="Model &amp; Controller\Order.cs" />
+    <Compile Include="Model &amp; Controller\OrderController.cs" />
     <Compile Include="Model &amp; Controller\Restaurant.cs" />
     <Compile Include="Model &amp; Controller\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\CardPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CardPayment.Designer.cs">
+      <DependentUpon>CardPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ChoosePayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ChoosePayment.Designer.cs">
+      <DependentUpon>ChoosePayment.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\CustomerSignUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +150,24 @@
     </Compile>
     <Compile Include="View\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PickaDriver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PickaDriver.Designer.cs">
+      <DependentUpon>PickaDriver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pick_restaurant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Pick_restaurant.Designer.cs">
+      <DependentUpon>Pick_restaurant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PlaceOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PlaceOrder.Designer.cs">
+      <DependentUpon>PlaceOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="View\RestaurantManageMenuUI.cs">
       <SubType>Form</SubType>
@@ -179,6 +211,12 @@
     <Compile Include="View\SignUp.Designer.cs">
       <DependentUpon>SignUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\ViewMyOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ViewMyOrders.Designer.cs">
+      <DependentUpon>ViewMyOrders.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -188,14 +226,32 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\CardPayment.resx">
+      <DependentUpon>CardPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ChoosePayment.resx">
+      <DependentUpon>ChoosePayment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\CustomerSignUp.resx">
       <DependentUpon>CustomerSignUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CustomerUI.resx">
+      <DependentUpon>CustomerUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\DriverSignUp.resx">
       <DependentUpon>DriverSignUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PickaDriver.resx">
+      <DependentUpon>PickaDriver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Pick_restaurant.resx">
+      <DependentUpon>Pick_restaurant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PlaceOrder.resx">
+      <DependentUpon>PlaceOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\RestaurantManageMenuUI.resx">
       <DependentUpon>RestaurantManageMenuUI.cs</DependentUpon>
@@ -217,6 +273,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ViewMyOrders.resx">
+      <DependentUpon>ViewMyOrders.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
