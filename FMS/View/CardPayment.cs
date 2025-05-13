@@ -10,11 +10,19 @@ using System.Windows.Forms;
 
 namespace FMS.View
 {
-    public partial class CustomerUI : Form
+    public partial class CardPayment : Form
     {
-        public CustomerUI(int customerId)
+        int orderId;
+        public CardPayment(int orderId)
         {
             InitializeComponent();
+            this.orderId = orderId;
+        }
+
+
+        private void CardPayment_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

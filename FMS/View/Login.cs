@@ -43,7 +43,7 @@ namespace FMS.View
                 }
                 else if (user.userType == 3)
                 {
-                    new CustomerUI().Show();
+                    new CustomerUI(user.userID).Show();
                     this.Hide();
                 } else
                 {
