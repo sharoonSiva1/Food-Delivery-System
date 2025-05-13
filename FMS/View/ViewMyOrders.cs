@@ -22,8 +22,9 @@ namespace FMS.View
 
         private void LoadOrders()
         {
-            DataGridViewMyOrders.DataSource = FMS.Model___Controller.OrderController.GetOrdersByCustomer(customerId);
-            DataGridViewMyOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; // ← Add this line
+            DataGridViewMyOrders.DataSource = FMS.Model___Controller.OrderController.GetOrdersByCustomers(customerId);
+            DataGridViewMyOrders.Columns["CustomerID"].Visible = false;
+            DataGridViewMyOrders.Columns["ID"].Visible = false;
         }
 
 

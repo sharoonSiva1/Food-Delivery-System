@@ -22,12 +22,12 @@ namespace FMS.View
             LoadMenuItems();
 
             // Prevents the DataGridView from showing empty row
-            dataGridView1.AllowUserToAddRows = false;
+            CartGrid.AllowUserToAddRows = false;
         }
 
         private void LoadMenuItems()
         {
-            string query = $"SELECT ItemID, Name, Price FROM menuitems WHERE RestaurantID = {restaurantId}";
+            string query = $"SELECT ItemID, Name, Price FROM menuitems WHERE RestaurantID = {restaurantId} AND Availability = 1";
             DBConnection db = new DBConnection();
             DataTable table = new DataTable();
 
@@ -39,32 +39,29 @@ namespace FMS.View
                 db.CloseConnection();
             }
 
-            listBox1.Items.Clear();
-            foreach (DataRow row in table.Rows)
-            {
-                string itemDisplay = $"{row["ItemID"]} - {row["Name"]} - Rs.{row["Price"]}";
-                listBox1.Items.Add(itemDisplay);
-            }
+            AvailableFoodItemGrid.DataSource = table;
+
+            AvailableFoodItemGrid.Columns["ItemID"].HeaderText = "Item ID";
+            AvailableFoodItemGrid.Columns["Name"].HeaderText = "Item Name";
+            AvailableFoodItemGrid.Columns["Price"].HeaderText = "Price (Rs.)";
         }
 
         private void AddToCartBtn_Click(object sender, EventArgs e)
         {
-            if (listBox1.SelectedItem == null)
+            if (AvailableFoodItemGrid.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Please select an item to add.");
                 return;
             }
 
-            string selectedItem = listBox1.SelectedItem.ToString(); // e.g. "1 - Burger - Rs.500"
-            string[] parts = selectedItem.Split('-');
-            if (parts.Length < 3) return;
-
-            int itemId = int.Parse(parts[0].Trim());
-            string itemName = parts[1].Trim();
-            decimal price = decimal.Parse(parts[2].Replace("Rs.", "").Trim());
+            DataGridViewRow selectedRow = AvailableFoodItemGrid.SelectedRows[0]; // e.g. "1 - Burger - Rs.500"
+            
+            int itemId = Convert.ToInt32(selectedRow.Cells["ItemID"].Value);
+            string itemName = selectedRow.Cells["Name"].Value.ToString();
+            decimal price = Convert.ToDecimal(selectedRow.Cells["Price"].Value);
 
             DataTable table;
-            if (dataGridView1.DataSource == null)
+            if (CartGrid.DataSource == null)
             {
                 table = new DataTable();
                 table.Columns.Add("ItemID", typeof(int));
@@ -74,7 +71,7 @@ namespace FMS.View
             }
             else
             {
-                table = (DataTable)dataGridView1.DataSource;
+                table = (DataTable)CartGrid.DataSource;
             }
 
             DataRow row = table.NewRow();
@@ -84,14 +81,14 @@ namespace FMS.View
             row["Quantity"] = 1;
 
             table.Rows.Add(row);
-            dataGridView1.DataSource = table;
+            CartGrid.DataSource = table;
         }
 
         private void RemoveItemBtn_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            if (CartGrid.SelectedRows.Count > 0)
             {
-                dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
+                CartGrid.Rows.RemoveAt(CartGrid.SelectedRows[0].Index);
             }
             else
             {
@@ -101,13 +98,13 @@ namespace FMS.View
 
         private void UpdateGridBtn_Click(object sender, EventArgs e)
         {
-            dataGridView1.Refresh();
+            CartGrid.Refresh();
             MessageBox.Show("Grid updated. Remember to click 'Place Order' to save.");
         }
 
         private void PlaceOrderBtn_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count == 0)
+            if (CartGrid.Rows.Count == 0)
             {
                 MessageBox.Show("Your cart is empty.");
                 return;
@@ -116,7 +113,7 @@ namespace FMS.View
             string items = "";
             decimal totalCost = 0;
 
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            foreach (DataGridViewRow row in CartGrid.Rows)
             {
                 if (row.IsNewRow) continue;
 
@@ -134,25 +131,36 @@ namespace FMS.View
 
             items = items.TrimEnd(',', ' ');
 
+            int driverId = new Driver().AssignDriver();
+
+            if (driverId == -1) // returns early in case of no available drivers
+            {
+                MessageBox.Show("There are no Driver available. Please try again later.");
+                return;
+            }
+
             FMS.Model___Controller.Order order = new FMS.Model___Controller.Order
             {
                 CustomerID = customerId,
                 Items = items,
                 TotalCost = totalCost,
                 DeliveryAddress = "Default address",
-                PaymentMethod = ""
+                DriverID = driverId,
+                RestID = restaurantId,
             };
 
             FMS.Model___Controller.OrderController.PlaceOrder(order);
 
-            MessageBox.Show("Order placed! Proceeding to payment...");
+            MessageBox.Show("Order placed!");
             this.Hide();
-            ChoosePayment payment = new ChoosePayment(orderId);
-            payment.Show();
+            new CustomerUI(customerId).Show();
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e) { }
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
+
+        private void PlaceOrder_Load(object sender, EventArgs e)
+        {
+            LoadMenuItems();
+        }
     }
 }

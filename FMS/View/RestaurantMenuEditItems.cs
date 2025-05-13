@@ -35,9 +35,9 @@ namespace FMS.View
                 ItemPriceTextBox.Text = row["Price"].ToString();
 
                 string availability = row["Availability"].ToString();
-                if (availability == "Available")
+                if (availability == "True")
                     ItemAvailabilityComboBox.SelectedIndex = 0;
-                else if (availability == "Not Available")
+                else if (availability == "False")
                     ItemAvailabilityComboBox.SelectedIndex = 1;
             }
             else
@@ -70,8 +70,18 @@ namespace FMS.View
                     return;
                 }
 
+                bool availability = true;
+                if (availabilityText == "Available")
+                {
+                    availability = true;
+                }
+                else
+                {
+                    availability = false;
+                }
+
                 Model___Controller.Menu updateItem = new Model___Controller.Menu();
-                updateItem.EditItem(ItemID, updatedName, updatedDesc, updatedPrice, availabilityText);
+                updateItem.EditItem(ItemID, updatedName, updatedDesc, updatedPrice, availability);
 
                 this.Close();
                 RestaurantManageMenuUI manageForm = new RestaurantManageMenuUI(RestaurantID);
@@ -81,6 +91,12 @@ namespace FMS.View
             {
                 MessageBox.Show("An error occurred: " + ex.Message, "Update Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void GoBackButton_Click(object sender, EventArgs e)
+        {
+            new RestaurantManageMenuUI(RestaurantID).Show();
+            this.Close();
         }
     }
 }

@@ -34,5 +34,12 @@ namespace FMS.View
             restaurantManageMenuUI.Show();
             this.Hide();
         }
+
+        private void OngoingOrdersButton_Click(object sender, EventArgs e)
+        {
+            RestaurantViewOrder restaurantViewOrder = new RestaurantViewOrder(restaurantUserId);
+            restaurantViewOrder.Show();
+            this.Hide();
+        }
     }
 }

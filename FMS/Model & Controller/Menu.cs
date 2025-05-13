@@ -20,7 +20,7 @@ namespace FMS.Model___Controller
         }
 
         // Add new menu item
-        public void AddItem(int restaurantId, string name, string description, decimal price, string availability)
+        public void AddItem(int restaurantId, string name, string description, decimal price, bool availability)
         {
             string query = $"INSERT INTO menuitems (RestaurantID, Name, Description, Price, Availability) " +
                            $"VALUES ('{restaurantId}', '{name}', '{description}', {price}, '{availability}')";
@@ -37,7 +37,7 @@ namespace FMS.Model___Controller
         }
 
         // Edit existing item
-        public void EditItem(int itemId, string name, string description, decimal price, string availability)
+        public void EditItem(int itemId, string name, string description, decimal price, bool availability)
         {
             string query = "UPDATE menuitems SET ";
             var updates = new System.Collections.Generic.List<string>();
@@ -48,8 +48,7 @@ namespace FMS.Model___Controller
                 updates.Add($"Description = '{description}'");
             if (price > 0)
                 updates.Add($"Price = {price}");
-            if (!string.IsNullOrWhiteSpace(availability))
-                updates.Add($"Availability = '{availability}'");
+                updates.Add($"Availability = {availability}");
 
             if (updates.Count > 0)
             {
@@ -103,6 +102,7 @@ namespace FMS.Model___Controller
                     adapter.Fill(table);
 
                     grid.DataSource = table;
+                    grid.Columns["ItemID"].Visible = false;
                 }
                 catch (Exception ex)
                 {

@@ -46,7 +46,7 @@ namespace FMS.View
 
         private void button1_Click(object sender, EventArgs e)
         {
-            selectedRestaurantId = Convert.ToInt32(AvailableRestaurantsBtn.Rows[0].Cells["RestaurantID"].Value);
+            selectedRestaurantId = Convert.ToInt32(AvailableRestaurantsBtn.SelectedRows[0].Cells["RestaurantID"].Value);
             if (selectedRestaurantId == 0)
             {
                 MessageBox.Show("Please select a restaurant first.");
@@ -61,6 +61,12 @@ namespace FMS.View
         private void Pick_restaurant_Load_1(object sender, EventArgs e)
         {
             LoadRestaurants();
+        }
+
+        private void GoBackButton_Click(object sender, EventArgs e)
+        {
+            new CustomerUI(customerId).Show();
+            this.Close();
         }
     }
 }

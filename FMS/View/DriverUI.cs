@@ -28,7 +28,8 @@ namespace FMS.View
 
         private void LoadAssignedOrder()
         {
-            string query = $"SELECT ID, CustomerID, Items, TotalCost, Status FROM orders WHERE DriverID = {driverId} AND Status = 'Assigned'";
+            MessageBox.Show(driverId.ToString());
+            string query = $"SELECT ID, CustomerID, Items, TotalCost, Status FROM orders WHERE DriverID = {driverId}";
             DBConnection db = new DBConnection();
             DataTable table = new DataTable();
 
@@ -51,7 +52,7 @@ namespace FMS.View
                 int orderId = Convert.ToInt32(dataGridViewDriverOrders.SelectedRows[0].Cells["ID"].Value);
 
                 string updateOrder = $"UPDATE orders SET Status = 'Delivered' WHERE ID = {orderId}";
-                string updateDriver = $"UPDATE drivers SET Available = 1 WHERE ID = {driverId}";
+                string updateDriver = $"UPDATE drivers SET Availability = 1 WHERE ID = {driverId}";
 
                 DBConnection db = new DBConnection();
                 db.ExecuteQuery(updateOrder);

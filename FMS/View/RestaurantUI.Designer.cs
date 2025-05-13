@@ -31,6 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.ManageProfileButton = new System.Windows.Forms.Button();
             this.ManageMenuButton = new System.Windows.Forms.Button();
+            this.OngoingOrdersButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -63,11 +64,22 @@
             this.ManageMenuButton.UseVisualStyleBackColor = true;
             this.ManageMenuButton.Click += new System.EventHandler(this.ManageMenuButton_Click);
             // 
+            // OngoingOrdersButton
+            // 
+            this.OngoingOrdersButton.Location = new System.Drawing.Point(309, 227);
+            this.OngoingOrdersButton.Name = "OngoingOrdersButton";
+            this.OngoingOrdersButton.Size = new System.Drawing.Size(176, 41);
+            this.OngoingOrdersButton.TabIndex = 3;
+            this.OngoingOrdersButton.Text = "View Ongoing Orders";
+            this.OngoingOrdersButton.UseVisualStyleBackColor = true;
+            this.OngoingOrdersButton.Click += new System.EventHandler(this.OngoingOrdersButton_Click);
+            // 
             // RestaurantUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.OngoingOrdersButton);
             this.Controls.Add(this.ManageMenuButton);
             this.Controls.Add(this.ManageProfileButton);
             this.Controls.Add(this.label1);
@@ -83,5 +95,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button ManageProfileButton;
         private System.Windows.Forms.Button ManageMenuButton;
+        private System.Windows.Forms.Button OngoingOrdersButton;
     }
 }

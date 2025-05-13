@@ -109,18 +109,6 @@
     <Compile Include="Model &amp; Controller\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\CardPayment.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\CardPayment.Designer.cs">
-      <DependentUpon>CardPayment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\ChoosePayment.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\ChoosePayment.Designer.cs">
-      <DependentUpon>ChoosePayment.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\CustomerSignUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,6 +193,12 @@
     <Compile Include="View\RestaurantUI.Designer.cs">
       <DependentUpon>RestaurantUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\RestaurantViewOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\RestaurantViewOrder.Designer.cs">
+      <DependentUpon>RestaurantViewOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\SignUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,12 +220,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\CardPayment.resx">
-      <DependentUpon>CardPayment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\ChoosePayment.resx">
-      <DependentUpon>ChoosePayment.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\CustomerSignUp.resx">
       <DependentUpon>CustomerSignUp.cs</DependentUpon>
     </EmbeddedResource>
@@ -273,6 +261,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\RestaurantUI.resx">
       <DependentUpon>RestaurantUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\RestaurantViewOrder.resx">
+      <DependentUpon>RestaurantViewOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>

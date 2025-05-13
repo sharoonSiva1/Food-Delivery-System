@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using FMS.View;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -13,30 +14,41 @@ namespace FMS.Model___Controller
     {
         public static void PlaceOrder(Order order)
         {
-            string query = $"INSERT INTO orders (CustomerID, Items, Status, TotalCost, DeliveryAddress, PaymentMethod) " +
-                           $"VALUES ({order.CustomerID}, '{order.Items}', 'Pending', {order.TotalCost}, '{order.DeliveryAddress}', '')";
+            string query = $"INSERT INTO orders (CustomerID, Items, Status, TotalCost, DeliveryAddress, DriverID, RestaurantID) " +
+                           $"VALUES ({order.CustomerID}, '{order.Items}', 'Pending', {order.TotalCost}, '{order.DeliveryAddress}', '{order.DriverID}', '{order.RestID}')";
 
             DBConnection db = new DBConnection();
             db.ExecuteQuery(query); 
         }
 
-        public static void UpdatePaymentMethod(int orderId, string method)
-        {
-            string query = $"UPDATE orders SET PaymentMethod = '{method}' WHERE ID = {orderId}";
-            DBConnection db = new DBConnection();
-            db.ExecuteQuery(query);
-        }
-
         public static void CancelOrder(int orderId)
         {
-            string query = $"UPDATE orders SET Status = 'Cancelled' WHERE ID = {orderId}";
+            string query = $"DELETE FROM orders WHERE ID = {orderId}";
             DBConnection db = new DBConnection();
             db.ExecuteQuery(query);
         }
 
-        public static DataTable GetOrdersByCustomer(int customerId)
+        public static DataTable GetOrdersByCustomers(int customerId)
         {
             string query = $"SELECT * FROM orders WHERE CustomerID = {customerId}";
+            DBConnection db = new DBConnection();
+
+            DataTable table = new DataTable();
+
+            if (db.OpenConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, db.GetConnection());
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                adapter.Fill(table);
+                db.CloseConnection();
+            }
+
+            return table;
+        }
+
+        public static DataTable GetOrdersByRestaurant(int restaurantId) 
+        {
+            string query = $"SELECT * FROM orders WHERE RestaurantID = {restaurantId}";
             DBConnection db = new DBConnection();
 
             DataTable table = new DataTable();
