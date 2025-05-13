@@ -17,24 +17,36 @@ namespace FMS.View
         public Pick_restaurant(int id)
         {
             InitializeComponent();
-            customerId = id; // store it for later use
+            customerId = id;
         }
         int selectedRestaurantId;
         private void LoadRestaurants()
         {
-            FMS.Model___Controller.Restaurant controller = new FMS.Model___Controller.Restaurant();
-            List<FMS.Model___Controller.Restaurant> restaurants = controller.GetAllRestaurants();
+            FMS.Model___Controller.Restaurant restaurantModel = new FMS.Model___Controller.Restaurant();
+            List<FMS.Model___Controller.Restaurant> restaurants = restaurantModel.GetAllRestaurants();
 
-            AvailableRestaurantsBtn.Items.Clear();
-            foreach (var res in restaurants)
+            if (restaurants != null && restaurants.Count > 0)
             {
-                AvailableRestaurantsBtn.Items.Add(res.RestaurantName);
+                AvailableRestaurantsBtn.DataSource = restaurants;
+
+                AvailableRestaurantsBtn.Columns["userName"].Visible = false;
+                AvailableRestaurantsBtn.Columns["password"].Visible = false;
+                AvailableRestaurantsBtn.Columns["userType"].Visible = false;
+                AvailableRestaurantsBtn.Columns["RestaurantID"].Visible = false;
+                AvailableRestaurantsBtn.Columns["UserID"].Visible = false;
+
+            }
+            else
+            {
+                AvailableRestaurantsBtn.DataSource = null;
+                MessageBox.Show("No restaurants found.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
 
         private void button1_Click(object sender, EventArgs e)
         {
+            selectedRestaurantId = Convert.ToInt32(AvailableRestaurantsBtn.Rows[0].Cells["RestaurantID"].Value);
             if (selectedRestaurantId == 0)
             {
                 MessageBox.Show("Please select a restaurant first.");
@@ -46,24 +58,9 @@ namespace FMS.View
             orderForm.Show();
         }
 
-
-        private void AvailableRestaurantsBtn_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string selectedName = AvailableRestaurantsBtn.SelectedItem.ToString();
-            FMS.Model___Controller.Restaurant controller = new FMS.Model___Controller.Restaurant();
-            List<FMS.Model___Controller.Restaurant> restaurants = controller.GetAllRestaurants();
-
-            var selected = restaurants.FirstOrDefault(r => r.RestaurantName == selectedName);
-            if (selected != null)
-            {
-                selectedRestaurantId = selected.RestaurantID;
-            }
-        }
-
-        private void Pick_restaurant_Load(object sender, EventArgs e)
+        private void Pick_restaurant_Load_1(object sender, EventArgs e)
         {
             LoadRestaurants();
         }
-
     }
 }

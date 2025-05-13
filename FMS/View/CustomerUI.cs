@@ -20,14 +20,15 @@ namespace FMS.View
             customerId = id;
         }
 
+        //PLACE ORDER BUTTON
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();  //hide current window
+            this.Hide();
             Pick_restaurant pick = new Pick_restaurant(customerId);
             pick.Show();
         }
 
-
+        //VIEW MY ORDERS BUTTON
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -35,7 +36,7 @@ namespace FMS.View
             ordersForm.Show();
         }
 
-
+        //LOGOUT BUTTON
         private void LogOutBtn_Click(object sender, EventArgs e)
         {
             this.Hide();

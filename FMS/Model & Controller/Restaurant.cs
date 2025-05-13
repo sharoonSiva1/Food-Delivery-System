@@ -18,7 +18,6 @@ namespace FMS.Model___Controller
         public string Address { get; set; }
         public TimeSpan OpeningTime { get; set; }
         public TimeSpan ClosingTime { get; set; }
-        public string Review { get; set; }
 
         private DBConnection connection;
 
@@ -169,7 +168,6 @@ namespace FMS.Model___Controller
                                 Address = reader["address"].ToString(),
                                 OpeningTime = TimeSpan.Parse(reader["OpenTime"].ToString()),
                                 ClosingTime = TimeSpan.Parse(reader["CloseTime"].ToString()),
-                                Review = reader["Review"].ToString()
                             };
                             restaurants.Add(restaurant);
                         }
@@ -207,7 +205,6 @@ namespace FMS.Model___Controller
                                 Address = reader["Address"].ToString(),
                                 OpeningTime = TimeSpan.Parse(reader["OpenTime"].ToString()),
                                 ClosingTime = TimeSpan.Parse(reader["CloseTime"].ToString()),
-                                Review = reader["Review"].ToString()
                             };
                         }
                     }
