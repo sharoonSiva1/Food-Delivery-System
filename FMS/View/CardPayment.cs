@@ -24,5 +24,57 @@ namespace FMS.View
         {
 
         }
+
+        private void CardNumbertxtbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ExpireDatetxtbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CardHoldertxtbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Cvvtxtbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ConfirmPaymentBtn_Click(object sender, EventArgs e)
+        {
+            string cardNumber = CardNumbertxtbox.Text.Trim();
+            string expiry = ExpireDatetxtbox.Text.Trim();
+            string holder = CardHoldertxtbox.Text.Trim();
+            string cvv = Cvvtxtbox.Text.Trim();
+
+            // Basic validation
+            if (string.IsNullOrEmpty(cardNumber) || string.IsNullOrEmpty(expiry) ||
+                string.IsNullOrEmpty(holder) || string.IsNullOrEmpty(cvv))
+            {
+                MessageBox.Show("Please fill in all the fields.");
+                return;
+            }
+
+            if (cardNumber.Length < 12 || cvv.Length != 3)
+            {
+                MessageBox.Show("Invalid card details.");
+                return;
+            }
+
+            // Update payment method
+            FMS.Model___Controller.OrderController.UpdatePaymentMethod(orderId, "Card");
+
+            MessageBox.Show("Payment successful!");
+
+            this.Hide();
+            PickaDriver driverForm = new PickaDriver(orderId);
+            driverForm.Show();
+        }
+
     }
 }
