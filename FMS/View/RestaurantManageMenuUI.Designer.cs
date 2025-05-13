@@ -39,13 +39,10 @@
             // 
             // menuItemsGrid
             // 
-            this.menuItemsGrid.AllowUserToAddRows = false;
-            this.menuItemsGrid.AllowUserToDeleteRows = false;
+            this.menuItemsGrid.AllowUserToOrderColumns = true;
             this.menuItemsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.menuItemsGrid.Location = new System.Drawing.Point(64, 104);
-            this.menuItemsGrid.MultiSelect = false;
             this.menuItemsGrid.Name = "menuItemsGrid";
-            this.menuItemsGrid.ReadOnly = true;
             this.menuItemsGrid.RowHeadersWidth = 51;
             this.menuItemsGrid.RowTemplate.Height = 24;
             this.menuItemsGrid.Size = new System.Drawing.Size(686, 180);

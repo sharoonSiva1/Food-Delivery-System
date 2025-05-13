@@ -30,6 +30,7 @@ namespace FMS.View
 
         private void LoadRestaurantDetails()
         {
+            //MessageBox.Show(RestaurantId.ToString());
             var details = restaurant.GetRestaurantById(RestaurantId);
 
             if (details != null)
@@ -53,6 +54,11 @@ namespace FMS.View
             this.Hide();
         }
 
+        private void RestaurantManageProfileUI_Load_1(object sender, EventArgs e)
+        {
+            LoadRestaurantDetails();
+        }
+
         private void UpdateProfileButton_Click(object sender, EventArgs e)
         {
             string name = NameTextBox.Text.Trim();
@@ -62,38 +68,6 @@ namespace FMS.View
             DateTime closing = ClosingTimeBox.Value;
 
             restaurant.EditRestaurant(RestaurantId, name, desc, address, opening, closing);
-        }
-
-        private void DeleteProfileButton_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show(
-        "Are you sure you want to delete this restaurant? This action cannot be undone.",
-        "Confirm Deletion",
-        MessageBoxButtons.OKCancel,
-        MessageBoxIcon.Warning
-        );
-
-            if (result == DialogResult.OK)
-            {
-                Restaurant restaurant = new Restaurant();
-                restaurant.DeleteRestaurant(RestaurantId);
-                Login login = new Login();
-                login.Show();
-                this.Hide();
-            }
-        }
-
-        private void RestaurantManageProfileUI_Load_1(object sender, EventArgs e)
-        {
-            LoadRestaurantDetails();
-            OpeningTimeBox.Format = DateTimePickerFormat.Custom;
-            OpeningTimeBox.CustomFormat = "HH:mm";
-            OpeningTimeBox.ShowUpDown = true;
-
-            ClosingTimeBox.Format = DateTimePickerFormat.Custom;
-            ClosingTimeBox.CustomFormat = "HH:mm";
-            ClosingTimeBox.ShowUpDown = true;
-
         }
     }
 }

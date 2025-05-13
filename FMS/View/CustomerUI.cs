@@ -12,9 +12,36 @@ namespace FMS.View
 {
     public partial class CustomerUI : Form
     {
-        public CustomerUI()
+        int customerId;
+
+        public CustomerUI(int id)
         {
             InitializeComponent();
+            customerId = id;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();  //hide current window
+            Pick_restaurant pick = new Pick_restaurant(customerId);
+            pick.Show();
+        }
+
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ViewMyOrders ordersForm = new ViewMyOrders(customerId);
+            ordersForm.Show();
+        }
+
+
+        private void LogOutBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login loginForm = new Login();
+            loginForm.Show();
+        }
+
     }
 }
