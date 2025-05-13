@@ -20,12 +20,20 @@ namespace FMS.View
 
         private void RegisterButton_Click(object sender, EventArgs e)
         {
-            string CustomerName = NameTextBox.Text;
-            string Address = AddressTextBox.Text;
-            string Username = UsernameTextBox.Text;
-            string Password = PasswordTextBox.Text;
+            string customerName = NameTextBox.Text;
+            string address = AddressTextBox.Text;
+            string username = UsernameTextBox.Text;
+            string password = PasswordTextBox.Text;
 
-            new Customer().AddCustomer(Username, Password, CustomerName, Address);
+            Customer customer = new Customer();
+            bool success = customer.AddCustomer(username, password, customerName, address);
+
+            if (success)
+            {
+                Login loginForm = new Login();
+                loginForm.Show();
+                this.Hide();
+            }
         }
 
         private void GoBackButton_Click(object sender, EventArgs e)

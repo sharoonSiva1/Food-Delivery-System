@@ -1,9 +1,11 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace FMS.Model___Controller
 {
@@ -16,21 +18,60 @@ namespace FMS.Model___Controller
         {
         }
 
-        // Optional: Method to save customer-specific data if you have a separate 'customers' table
-        public void AddCustomer(string userName, string password, string customerName, string address)
+        public bool AddCustomer(string userName, string password, string customerName, string address)
         {
-            // Step 1: Create base user
+            // Check if username already exists
+            string checkQuery = $"SELECT COUNT(*) FROM users WHERE Username = '{userName}'";
+            int count = 0;
+
+            try
+            {
+                if (dbConnection.OpenConnection())
+                {
+                    using (var command = new MySqlCommand(checkQuery, dbConnection.GetConnection()))
+                    {
+                        count = Convert.ToInt32(command.ExecuteScalar());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error checking username: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dbConnection.CloseConnection();
+                return false;
+            }
+            finally
+            {
+                dbConnection.CloseConnection();
+            }
+
+            if (count > 0)
+            {
+                MessageBox.Show("Username already exists. Please choose a different one.", "Duplicate Username", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            // Proceed to create customer
             this.userName = userName;
             this.password = password;
             this.userType = 3; // 3 for Customer
 
             AddUser(userName, password, this.userType);
-
             int lastUserId = dbConnection.GetLastInsertId();
 
             string query = $"INSERT INTO customers (ID, Name, Address) VALUES ({lastUserId}, '{customerName}', '{address}')";
-            dbConnection.ExecuteQuery(query);
 
+            try
+            {
+                dbConnection.ExecuteQuery(query);
+                MessageBox.Show("Customer registered successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error registering customer: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
     }
 

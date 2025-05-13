@@ -241,6 +241,9 @@
     <EmbeddedResource Include="View\DriverSignUp.resx">
       <DependentUpon>DriverSignUp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\DriverUI.resx">
+      <DependentUpon>DriverUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>

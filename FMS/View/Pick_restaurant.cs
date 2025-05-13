@@ -12,9 +12,8 @@ namespace FMS.View
 {
     public partial class Pick_restaurant : Form
     {
-        int customerId; // ⬅️ this will store the ID passed from CustomerUI
+        int customerId;
 
-        // ✅ Constructor that accepts the customerId
         public Pick_restaurant(int id)
         {
             InitializeComponent();
@@ -57,7 +56,7 @@ namespace FMS.View
             var selected = restaurants.FirstOrDefault(r => r.RestaurantName == selectedName);
             if (selected != null)
             {
-                selectedRestaurantId = selected.ID; // Make sure Restaurant class has a public int ID
+                selectedRestaurantId = selected.RestaurantID;
             }
         }
 
