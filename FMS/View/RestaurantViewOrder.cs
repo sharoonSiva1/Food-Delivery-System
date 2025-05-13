@@ -31,7 +31,7 @@ namespace FMS.View
         private void LoadOrders(int restID)
         {
             OngoingOrdersDataGrid.DataSource = FMS.Model___Controller.OrderController.GetOrdersByRestaurant(restID);
-            OngoingOrdersDataGrid.Columns["CustomerID"].Visible = false;
+            OngoingOrdersDataGrid.Columns["RestaurantID"].Visible = false;
             OngoingOrdersDataGrid.Columns["ID"].Visible = false;
         }
 

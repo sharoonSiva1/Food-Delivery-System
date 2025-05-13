@@ -23,7 +23,7 @@ namespace FMS.Model___Controller
         public void AddItem(int restaurantId, string name, string description, decimal price, bool availability)
         {
             string query = $"INSERT INTO menuitems (RestaurantID, Name, Description, Price, Availability) " +
-                           $"VALUES ('{restaurantId}', '{name}', '{description}', {price}, '{availability}')";
+                           $"VALUES ('{restaurantId}', '{name}', '{description}', {price}, {availability})";
 
             try
             {

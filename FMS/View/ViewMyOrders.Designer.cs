@@ -32,7 +32,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.RefreshBtn = new System.Windows.Forms.Button();
             this.GoBackBtn = new System.Windows.Forms.Button();
-            this.UpdateOrderBtn = new System.Windows.Forms.Button();
             this.CancelOrderBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewMyOrders)).BeginInit();
             this.SuspendLayout();
@@ -73,10 +72,10 @@
             // 
             // RefreshBtn
             // 
-            this.RefreshBtn.Location = new System.Drawing.Point(376, 369);
+            this.RefreshBtn.Location = new System.Drawing.Point(12, 193);
             this.RefreshBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RefreshBtn.Name = "RefreshBtn";
-            this.RefreshBtn.Size = new System.Drawing.Size(87, 28);
+            this.RefreshBtn.Size = new System.Drawing.Size(109, 28);
             this.RefreshBtn.TabIndex = 7;
             this.RefreshBtn.Text = "Refresh";
             this.RefreshBtn.UseVisualStyleBackColor = true;
@@ -84,29 +83,18 @@
             // 
             // GoBackBtn
             // 
-            this.GoBackBtn.Location = new System.Drawing.Point(469, 369);
+            this.GoBackBtn.Location = new System.Drawing.Point(12, 244);
             this.GoBackBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.GoBackBtn.Name = "GoBackBtn";
-            this.GoBackBtn.Size = new System.Drawing.Size(87, 28);
+            this.GoBackBtn.Size = new System.Drawing.Size(109, 28);
             this.GoBackBtn.TabIndex = 8;
             this.GoBackBtn.Text = "Go back";
             this.GoBackBtn.UseVisualStyleBackColor = true;
             this.GoBackBtn.Click += new System.EventHandler(this.GoBackBtn_Click);
             // 
-            // UpdateOrderBtn
-            // 
-            this.UpdateOrderBtn.Location = new System.Drawing.Point(11, 138);
-            this.UpdateOrderBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.UpdateOrderBtn.Name = "UpdateOrderBtn";
-            this.UpdateOrderBtn.Size = new System.Drawing.Size(109, 28);
-            this.UpdateOrderBtn.TabIndex = 9;
-            this.UpdateOrderBtn.Text = "Update Order";
-            this.UpdateOrderBtn.UseVisualStyleBackColor = true;
-            this.UpdateOrderBtn.Click += new System.EventHandler(this.UpdateOrderBtn_Click);
-            // 
             // CancelOrderBtn
             // 
-            this.CancelOrderBtn.Location = new System.Drawing.Point(11, 170);
+            this.CancelOrderBtn.Location = new System.Drawing.Point(12, 142);
             this.CancelOrderBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CancelOrderBtn.Name = "CancelOrderBtn";
             this.CancelOrderBtn.Size = new System.Drawing.Size(109, 28);
@@ -121,7 +109,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(901, 418);
             this.Controls.Add(this.CancelOrderBtn);
-            this.Controls.Add(this.UpdateOrderBtn);
             this.Controls.Add(this.GoBackBtn);
             this.Controls.Add(this.RefreshBtn);
             this.Controls.Add(this.label2);
@@ -142,7 +129,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button RefreshBtn;
         private System.Windows.Forms.Button GoBackBtn;
-        private System.Windows.Forms.Button UpdateOrderBtn;
         private System.Windows.Forms.Button CancelOrderBtn;
     }
 }

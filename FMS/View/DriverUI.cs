@@ -28,7 +28,6 @@ namespace FMS.View
 
         private void LoadAssignedOrder()
         {
-            MessageBox.Show(driverId.ToString());
             string query = $"SELECT ID, CustomerID, Items, TotalCost, Status FROM orders WHERE DriverID = {driverId}";
             DBConnection db = new DBConnection();
             DataTable table = new DataTable();
@@ -70,7 +69,7 @@ namespace FMS.View
         private void LogOutBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            // You can show the login or main screen here if needed
+            new Login().Show();
         }
     }
 }

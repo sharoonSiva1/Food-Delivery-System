@@ -21,11 +21,13 @@ namespace FMS.Model___Controller
             db.ExecuteQuery(query); 
         }
 
-        public static void CancelOrder(int orderId)
+        public static void CancelOrder(int orderId, int driverId)
         {
             string query = $"DELETE FROM orders WHERE ID = {orderId}";
+            string updateDriver = $"UPDATE drivers SET Availability = 1 WHERE ID = {driverId}";
             DBConnection db = new DBConnection();
             db.ExecuteQuery(query);
+            db.ExecuteQuery(updateDriver);
         }
 
         public static DataTable GetOrdersByCustomers(int customerId)
@@ -64,12 +66,11 @@ namespace FMS.Model___Controller
             return table;
         }
 
-        public static void UpdateOrderItems(int orderId, string updatedItems, string quantity, decimal totalCost)
-        {
-            string query = $"UPDATE orders SET Items = '{updatedItems}', Quantity = '{quantity}', TotalCost = {totalCost} WHERE ID = {orderId}";
-            DBConnection db = new DBConnection();
-            db.ExecuteQuery(query);
-        }
-
+        //public static void UpdateOrderItems(int orderId, string updatedItems, decimal totalCost)
+        //{
+        //    string query = $"UPDATE orders SET Items = '{updatedItems}', TotalCost = {totalCost} WHERE ID = {orderId}";
+        //    DBConnection db = new DBConnection();
+        //    db.ExecuteQuery(query);
+        //}
     }
 }

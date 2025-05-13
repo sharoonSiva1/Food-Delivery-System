@@ -96,10 +96,10 @@ namespace FMS.View
             }
         }
 
-        private void UpdateGridBtn_Click(object sender, EventArgs e)
+        private void UpdateGridBtn_Click(object sender, EventArgs e) // Go Back Btn
         {
-            CartGrid.Refresh();
-            MessageBox.Show("Grid updated. Remember to click 'Place Order' to save.");
+            new CustomerUI(customerId).Show();
+            this.Hide();
         }
 
         private void PlaceOrderBtn_Click(object sender, EventArgs e)

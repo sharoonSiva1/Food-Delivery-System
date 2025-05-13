@@ -28,23 +28,22 @@ namespace FMS.View
         }
 
 
-        private void UpdateOrderBtn_Click(object sender, EventArgs e)
-        {
-            if (DataGridViewMyOrders.SelectedRows.Count > 0)
-            {
-                int orderId = Convert.ToInt32(DataGridViewMyOrders.SelectedRows[0].Cells["ID"].Value);
-                string updatedItems = DataGridViewMyOrders.SelectedRows[0].Cells["Items"].Value.ToString();
-                string updatedQty = DataGridViewMyOrders.SelectedRows[0].Cells["Quantity"].Value.ToString();
-                decimal updatedCost = Convert.ToDecimal(DataGridViewMyOrders.SelectedRows[0].Cells["TotalCost"].Value);
+        //private void UpdateOrderBtn_Click(object sender, EventArgs e)
+        //{
+        //    if (DataGridViewMyOrders.SelectedRows.Count > 0)
+        //    {
+        //        int orderId = Convert.ToInt32(DataGridViewMyOrders.SelectedRows[0].Cells["ID"].Value);
+        //        string updatedItems = DataGridViewMyOrders.SelectedRows[0].Cells["Items"].Value.ToString();
+        //        decimal updatedCost = Convert.ToDecimal(DataGridViewMyOrders.SelectedRows[0].Cells["TotalCost"].Value);
 
-                FMS.Model___Controller.OrderController.UpdateOrderItems(orderId, updatedItems, updatedQty, updatedCost);
-                LoadOrders();
-            }
-            else
-            {
-                MessageBox.Show("Please select an order to update.");
-            }
-        }
+        //        FMS.Model___Controller.OrderController.UpdateOrderItems(orderId, updatedItems, updatedCost);
+        //        LoadOrders();
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Please select an order to update.");
+        //    }
+        //}
 
 
         private void CancelOrderBtn_Click(object sender, EventArgs e)
@@ -52,7 +51,8 @@ namespace FMS.View
             if (DataGridViewMyOrders.SelectedRows.Count > 0)
             {
                 int orderId = Convert.ToInt32(DataGridViewMyOrders.SelectedRows[0].Cells["ID"].Value);
-                FMS.Model___Controller.OrderController.CancelOrder(orderId);
+                int driverId = Convert.ToInt32(DataGridViewMyOrders.SelectedRows [0].Cells["DriverID"].Value);
+                FMS.Model___Controller.OrderController.CancelOrder(orderId, driverId);
                 LoadOrders();
             }
             else

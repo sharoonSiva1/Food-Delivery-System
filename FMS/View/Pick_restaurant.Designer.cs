@@ -62,10 +62,12 @@
             this.AvailableRestaurantsBtn.AllowUserToDeleteRows = false;
             this.AvailableRestaurantsBtn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AvailableRestaurantsBtn.Location = new System.Drawing.Point(68, 104);
+            this.AvailableRestaurantsBtn.MultiSelect = false;
             this.AvailableRestaurantsBtn.Name = "AvailableRestaurantsBtn";
             this.AvailableRestaurantsBtn.ReadOnly = true;
             this.AvailableRestaurantsBtn.RowHeadersWidth = 51;
             this.AvailableRestaurantsBtn.RowTemplate.Height = 24;
+            this.AvailableRestaurantsBtn.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.AvailableRestaurantsBtn.Size = new System.Drawing.Size(549, 150);
             this.AvailableRestaurantsBtn.TabIndex = 5;
             // 

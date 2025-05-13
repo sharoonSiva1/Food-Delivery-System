@@ -39,29 +39,37 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.label2.Location = new System.Drawing.Point(233, 68);
+            this.label2.Location = new System.Drawing.Point(207, 54);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(296, 46);
+            this.label2.Size = new System.Drawing.Size(253, 39);
             this.label2.TabIndex = 6;
             this.label2.Text = "Assigned Order";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // dataGridViewDriverOrders
             // 
+            this.dataGridViewDriverOrders.AllowUserToAddRows = false;
+            this.dataGridViewDriverOrders.AllowUserToDeleteRows = false;
+            this.dataGridViewDriverOrders.AllowUserToResizeColumns = false;
+            this.dataGridViewDriverOrders.AllowUserToResizeRows = false;
             this.dataGridViewDriverOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDriverOrders.Location = new System.Drawing.Point(110, 129);
+            this.dataGridViewDriverOrders.Location = new System.Drawing.Point(98, 103);
+            this.dataGridViewDriverOrders.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridViewDriverOrders.MultiSelect = false;
             this.dataGridViewDriverOrders.Name = "dataGridViewDriverOrders";
             this.dataGridViewDriverOrders.RowHeadersWidth = 62;
             this.dataGridViewDriverOrders.RowTemplate.Height = 28;
-            this.dataGridViewDriverOrders.Size = new System.Drawing.Size(577, 209);
+            this.dataGridViewDriverOrders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewDriverOrders.Size = new System.Drawing.Size(513, 167);
             this.dataGridViewDriverOrders.TabIndex = 7;
             this.dataGridViewDriverOrders.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDriverOrders_CellContentClick);
             // 
             // MarkDeliveredBtn
             // 
-            this.MarkDeliveredBtn.Location = new System.Drawing.Point(199, 363);
+            this.MarkDeliveredBtn.Location = new System.Drawing.Point(177, 290);
+            this.MarkDeliveredBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MarkDeliveredBtn.Name = "MarkDeliveredBtn";
-            this.MarkDeliveredBtn.Size = new System.Drawing.Size(180, 47);
+            this.MarkDeliveredBtn.Size = new System.Drawing.Size(160, 38);
             this.MarkDeliveredBtn.TabIndex = 8;
             this.MarkDeliveredBtn.Text = "Mark Delivered ";
             this.MarkDeliveredBtn.UseVisualStyleBackColor = true;
@@ -69,9 +77,10 @@
             // 
             // LogOutBtn
             // 
-            this.LogOutBtn.Location = new System.Drawing.Point(405, 363);
+            this.LogOutBtn.Location = new System.Drawing.Point(360, 290);
+            this.LogOutBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LogOutBtn.Name = "LogOutBtn";
-            this.LogOutBtn.Size = new System.Drawing.Size(180, 47);
+            this.LogOutBtn.Size = new System.Drawing.Size(160, 38);
             this.LogOutBtn.TabIndex = 9;
             this.LogOutBtn.Text = "Log Out ";
             this.LogOutBtn.UseVisualStyleBackColor = true;
@@ -79,13 +88,14 @@
             // 
             // DriverUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(711, 360);
             this.Controls.Add(this.LogOutBtn);
             this.Controls.Add(this.MarkDeliveredBtn);
             this.Controls.Add(this.dataGridViewDriverOrders);
             this.Controls.Add(this.label2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "DriverUI";
             this.Text = "D";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDriverOrders)).EndInit();

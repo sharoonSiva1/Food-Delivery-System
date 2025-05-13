@@ -74,12 +74,18 @@
             // 
             // CartGrid
             // 
+            this.CartGrid.AllowUserToAddRows = false;
+            this.CartGrid.AllowUserToDeleteRows = false;
+            this.CartGrid.AllowUserToResizeColumns = false;
+            this.CartGrid.AllowUserToResizeRows = false;
             this.CartGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CartGrid.Location = new System.Drawing.Point(141, 339);
             this.CartGrid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CartGrid.MultiSelect = false;
             this.CartGrid.Name = "CartGrid";
             this.CartGrid.RowHeadersWidth = 62;
             this.CartGrid.RowTemplate.Height = 28;
+            this.CartGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.CartGrid.Size = new System.Drawing.Size(508, 105);
             this.CartGrid.TabIndex = 8;
             this.CartGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -123,17 +129,23 @@
             this.UpdateGridBtn.Name = "UpdateGridBtn";
             this.UpdateGridBtn.Size = new System.Drawing.Size(106, 31);
             this.UpdateGridBtn.TabIndex = 12;
-            this.UpdateGridBtn.Text = "Update Grid";
+            this.UpdateGridBtn.Text = "Go Back";
             this.UpdateGridBtn.UseVisualStyleBackColor = true;
             this.UpdateGridBtn.Click += new System.EventHandler(this.UpdateGridBtn_Click);
             // 
             // AvailableFoodItemGrid
             // 
+            this.AvailableFoodItemGrid.AllowUserToAddRows = false;
+            this.AvailableFoodItemGrid.AllowUserToDeleteRows = false;
+            this.AvailableFoodItemGrid.AllowUserToResizeColumns = false;
+            this.AvailableFoodItemGrid.AllowUserToResizeRows = false;
             this.AvailableFoodItemGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AvailableFoodItemGrid.Location = new System.Drawing.Point(141, 103);
+            this.AvailableFoodItemGrid.MultiSelect = false;
             this.AvailableFoodItemGrid.Name = "AvailableFoodItemGrid";
             this.AvailableFoodItemGrid.RowHeadersWidth = 51;
             this.AvailableFoodItemGrid.RowTemplate.Height = 24;
+            this.AvailableFoodItemGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.AvailableFoodItemGrid.Size = new System.Drawing.Size(508, 117);
             this.AvailableFoodItemGrid.TabIndex = 13;
             // 
