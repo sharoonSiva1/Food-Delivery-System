@@ -41,19 +41,22 @@
             // 
             this.menuItemsGrid.AllowUserToAddRows = false;
             this.menuItemsGrid.AllowUserToDeleteRows = false;
+            this.menuItemsGrid.AllowUserToResizeColumns = false;
+            this.menuItemsGrid.AllowUserToResizeRows = false;
             this.menuItemsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.menuItemsGrid.Location = new System.Drawing.Point(64, 104);
             this.menuItemsGrid.MultiSelect = false;
             this.menuItemsGrid.Name = "menuItemsGrid";
             this.menuItemsGrid.ReadOnly = true;
-            this.menuItemsGrid.RowHeadersWidth = 51;
+            this.menuItemsGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.menuItemsGrid.RowTemplate.Height = 24;
-            this.menuItemsGrid.Size = new System.Drawing.Size(686, 180);
+            this.menuItemsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.menuItemsGrid.Size = new System.Drawing.Size(686, 280);
             this.menuItemsGrid.TabIndex = 0;
             // 
             // AddItemButton
             // 
-            this.AddItemButton.Location = new System.Drawing.Point(119, 299);
+            this.AddItemButton.Location = new System.Drawing.Point(119, 403);
             this.AddItemButton.Name = "AddItemButton";
             this.AddItemButton.Size = new System.Drawing.Size(75, 29);
             this.AddItemButton.TabIndex = 1;
@@ -63,7 +66,7 @@
             // 
             // UpdateItemButton
             // 
-            this.UpdateItemButton.Location = new System.Drawing.Point(285, 299);
+            this.UpdateItemButton.Location = new System.Drawing.Point(285, 403);
             this.UpdateItemButton.Name = "UpdateItemButton";
             this.UpdateItemButton.Size = new System.Drawing.Size(75, 29);
             this.UpdateItemButton.TabIndex = 2;
@@ -73,7 +76,7 @@
             // 
             // RemoveItemButton
             // 
-            this.RemoveItemButton.Location = new System.Drawing.Point(438, 299);
+            this.RemoveItemButton.Location = new System.Drawing.Point(438, 403);
             this.RemoveItemButton.Name = "RemoveItemButton";
             this.RemoveItemButton.Size = new System.Drawing.Size(75, 29);
             this.RemoveItemButton.TabIndex = 3;
@@ -83,7 +86,7 @@
             // 
             // GoBackButton
             // 
-            this.GoBackButton.Location = new System.Drawing.Point(589, 299);
+            this.GoBackButton.Location = new System.Drawing.Point(589, 403);
             this.GoBackButton.Name = "GoBackButton";
             this.GoBackButton.Size = new System.Drawing.Size(82, 29);
             this.GoBackButton.TabIndex = 4;

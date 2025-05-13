@@ -27,30 +27,64 @@ namespace FMS.View
 
         private void RegisterButton_Click(object sender, EventArgs e)
         {
-            string restName = NameTextBox.Text;
-            string description = DescTextBox.Text;
-            string address = AddTextBox.Text;
-            DateTime OpenTime = OpenTimeBox.Value;
-            DateTime CloseTime = CloseTimeBox.Value;
-            string username = UsernameTextBox.Text;
-            string password = PasswordTextBox.Text;
-            string confirmPassword = ConfirmPasswordTextBox.Text;
-
-            if (password == confirmPassword)
+            try
             {
+                string restName = NameTextBox.Text.Trim();
+                string description = DescTextBox.Text.Trim();
+                string address = AddTextBox.Text.Trim();
+                DateTime openTime = OpenTimeBox.Value;
+                DateTime closeTime = CloseTimeBox.Value;
+                string username = UsernameTextBox.Text.Trim();
+                string password = PasswordTextBox.Text;
+                string confirmPassword = ConfirmPasswordTextBox.Text;
+
+                // Basic validation
+                if (string.IsNullOrWhiteSpace(restName) ||
+                    string.IsNullOrWhiteSpace(description) ||
+                    string.IsNullOrWhiteSpace(address) ||
+                    string.IsNullOrWhiteSpace(username) ||
+                    string.IsNullOrWhiteSpace(password) ||
+                    string.IsNullOrWhiteSpace(confirmPassword))
+                {
+                    MessageBox.Show("Please fill in all fields.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (password != confirmPassword)
+                {
+                    MessageBox.Show("Passwords do not match.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (openTime >= closeTime)
+                {
+                    MessageBox.Show("Opening time must be earlier than closing time.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if ((closeTime - openTime).TotalHours < 6)
+                {
+                    MessageBox.Show("The restaurant's closing time must be at least 6 hours after the opening time.", "Invalid Time Range", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 Restaurant rest = new Restaurant();
-                bool created = rest.CreateRestaurant(username, password, restName, description, address, OpenTime, CloseTime);
+                bool created = rest.CreateRestaurant(username, password, restName, description, address, openTime, closeTime);
 
                 if (created)
                 {
-                    Login login = new Login();
-                    login.Show();
+                    MessageBox.Show("Restaurant registered successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    new Login().Show();
                     this.Hide();
                 }
+                else
+                {
+                    MessageBox.Show("Failed to register restaurant. Username might already exist.", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Passwords do not match.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"An unexpected error occurred:\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

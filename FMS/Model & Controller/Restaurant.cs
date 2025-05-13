@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,6 @@ namespace FMS.Model___Controller
         public string Address { get; set; }
         public TimeSpan OpeningTime { get; set; }
         public TimeSpan ClosingTime { get; set; }
-        public string Review { get; set; }
 
         private DBConnection connection;
 
@@ -80,12 +80,10 @@ namespace FMS.Model___Controller
             try
             {
                 connection.ExecuteQuery(query);
-                MessageBox.Show("Restaurant created successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
@@ -144,6 +142,26 @@ namespace FMS.Model___Controller
 
             string deleteUser = $"DELETE FROM users WHERE ID = {id};";
             connection.ExecuteQuery(deleteUser);
+
+            string deleteOrder = $"DELETE FROM orders WHERE RestaurantID = {id};";
+            connection.ExecuteQuery(deleteOrder);
+
+            DataTable orderController = OrderController.GetOrdersByRestaurant(id);
+
+            if (orderController.Rows.Count > 0) 
+            {
+                foreach (DataRow row in orderController.Rows)
+                {
+                    int driverId = Convert.ToInt32(orderController.Rows[0]["DriverID"]);
+                    string updateDriver = $"UPDATE drivers SET Availability = 1 WHERE ID = {driverId}";
+                    connection.ExecuteQuery(updateDriver);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No orders found for this restaurant.");
+            }
+
         }
 
         // Get all restaurants
@@ -169,7 +187,6 @@ namespace FMS.Model___Controller
                                 Address = reader["address"].ToString(),
                                 OpeningTime = TimeSpan.Parse(reader["OpenTime"].ToString()),
                                 ClosingTime = TimeSpan.Parse(reader["CloseTime"].ToString()),
-                                Review = reader["Review"].ToString()
                             };
                             restaurants.Add(restaurant);
                         }
@@ -207,7 +224,6 @@ namespace FMS.Model___Controller
                                 Address = reader["Address"].ToString(),
                                 OpeningTime = TimeSpan.Parse(reader["OpenTime"].ToString()),
                                 ClosingTime = TimeSpan.Parse(reader["CloseTime"].ToString()),
-                                Review = reader["Review"].ToString()
                             };
                         }
                     }

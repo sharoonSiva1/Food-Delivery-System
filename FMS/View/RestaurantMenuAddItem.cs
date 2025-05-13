@@ -33,9 +33,9 @@ namespace FMS.View
             string itemName = ItemNameTextBox.Text.Trim();
             string itemDesc = ItemDescTextBox.Text.Trim();
             string itemPriceText = ItemPriceTextBox.Text.Trim();
-            string availability = ItemAvailabilityComboBox.SelectedItem?.ToString();
+            string available = ItemAvailabilityComboBox.SelectedItem?.ToString();
 
-            if (string.IsNullOrEmpty(itemName) || string.IsNullOrEmpty(itemDesc) || string.IsNullOrEmpty(itemPriceText) || string.IsNullOrEmpty(availability))
+            if (string.IsNullOrEmpty(itemName) || string.IsNullOrEmpty(itemDesc) || string.IsNullOrEmpty(itemPriceText) || string.IsNullOrEmpty(available))
             {
                 MessageBox.Show("Please fill in all fields.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -45,6 +45,15 @@ namespace FMS.View
             {
                 MessageBox.Show("Please enter a valid numeric price.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
+            }
+
+            bool availability = true;
+            if (available == "Available")
+            {
+                availability = true;
+            } else
+            {
+                availability = false;
             }
 
             // Call the AddItem function
