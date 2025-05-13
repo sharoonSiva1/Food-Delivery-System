@@ -57,11 +57,7 @@ namespace FMS.View
             var selected = restaurants.FirstOrDefault(r => r.RestaurantName == selectedName);
             if (selected != null)
             {
-<<<<<<< HEAD
-                selectedRestaurantId = selected.ID; // Make sure Restaurant class has a public int ID
-=======
                 selectedRestaurantId = selected.RestaurantID; // Make sure Restaurant class has a public int ID
->>>>>>> c5019d217a9aabaad3ea5b91650c94a1de16a8d9
             }
         }
 

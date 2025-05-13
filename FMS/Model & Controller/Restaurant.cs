@@ -12,11 +12,7 @@ namespace FMS.Model___Controller
 {
     internal class Restaurant : User
     {
-<<<<<<< HEAD
-        public int ID { get; set; }
-=======
         public int RestaurantID { get; set; }
->>>>>>> c5019d217a9aabaad3ea5b91650c94a1de16a8d9
         public string RestaurantName { get; set; }
         public string Description { get; set; }
         public string Address { get; set; }

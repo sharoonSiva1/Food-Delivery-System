@@ -38,7 +38,7 @@ namespace FMS.View
                 }
                 else if (user.userType == 2)
                 {
-                    new DriverUI().Show();
+                    new DriverUI(user.userID).Show();
                     this.Hide();
                 }
                 else if (user.userType == 3)

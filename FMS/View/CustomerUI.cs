@@ -12,13 +12,9 @@ namespace FMS.View
 {
     public partial class CustomerUI : Form
     {
-<<<<<<< HEAD
         int customerId;
 
         public CustomerUI(int id)
-=======
-        public CustomerUI(int customerId)
->>>>>>> c5019d217a9aabaad3ea5b91650c94a1de16a8d9
         {
             InitializeComponent();
             customerId = id;
